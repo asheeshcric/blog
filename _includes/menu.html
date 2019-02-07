@@ -5,7 +5,7 @@
 		<!-- Nav pages -->
 	  {% for page in site.pages %}
 	    {% if page.layout == "page" %}
-	      <a href="http://jashish.com.np/black">{{ page.title }}</a>
+	      <a href="{{ site.author.url }}" target="_blank">{{ page.title }}</a>
 	    {% endif %}
 	  {% endfor %}
     
