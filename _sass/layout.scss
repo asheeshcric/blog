@@ -61,6 +61,7 @@
 }
 
 #menu {
+  cursor: pointer;
   height: 4px;
   width: 1.5em;
   background-color: lighten($text-color, 35%);
@@ -201,7 +202,7 @@ img[title="Emerald"] {
 
 code {
   color: lighten($text-color, 35%);
-  background-color: lighten($background-color, 35%);
+  background-color: #272822;
 }
 
 /* Set the vertical rhythm (and padding-left) for lists inside post content */
