@@ -22,4 +22,4 @@ You can set custom links, by putting in the ``<a>`` tag into the ``link.html`` f
 ### Branch
 - ``master``: is for deploying your blogs.
 
-Last but not least: the [Jekyll documentation](http://jekyllrb.com) is the best starting point!
+Last but not the least: the [Jekyll documentation](http://jekyllrb.com) is the best starting point!
