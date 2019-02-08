@@ -1,8 +1,6 @@
 ## About
 This blog is built using jekyll and powered by Github Pages.
 
-![Emerald](/img/Emerald01.png "Emerald")
-
 ## Setup & usage
 Fork this repository and enable github pages from the repo settings. Customize the theme and you are ready to go.
 
@@ -24,14 +22,4 @@ You can set custom links, by putting in the ``<a>`` tag into the ``link.html`` f
 ### Branch
 - ``master``: is for deploying your blogs.
 
-Last but not least: the [Jekyll documentation](http://jekyllrb.com) is the best starting point! 
-
-## Author
-
-### Jacopo Rabolini
-
-- Web site: [www.jacoporabolini.com](http://www.jacoporabolini.com)
-- Google+: [+JacopoRabolini](https://plus.google.com/u/0/+JacopoRabolini/posts)
-
-## License
-Emerald is released under [MIT License](license.md).
+Last but not least: the [Jekyll documentation](http://jekyllrb.com) is the best starting point!
