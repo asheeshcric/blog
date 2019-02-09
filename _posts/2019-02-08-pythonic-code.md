@@ -86,4 +86,12 @@ As a programmer, I have always believed that feedback on your code from experien
 people weigh pretty high on improving your coding habits. If you can put your ego
 aside and think on the comments that others make about your code, this can help you
 learn faster than anything else. Obviously, not every feedback will be of high standards,
-but you will learn slowly to distinguish between what is bad and what is not.
+but you will slowly learn to distinguish between what is bad and what is not.
+
+
+### Writing Idiomatic Python code
+Keeping the above points in your mind will set you up with a mindset to write better
+python code. Sometimes, it can be a hassle to go through all the documentations to
+find out which code is better than the other. So, I have written a post that makes an
+effort to reveal the most useful python tricks that you can implement in your code on
+the go. Checkout this post [Tricks for writing Idiomatic Python Code]({% post_url 2019-02-09-idiomatic-python %}).
