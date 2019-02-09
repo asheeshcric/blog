@@ -64,12 +64,26 @@ Although PEP8 documentation is a great place to start writing structured code, i
 is very difficult to track layout errors in your code with the naked eye. In my
 personal experience, linters play a vital role in analysing code for potential errors.
 They check for both Programmatic and Stylistic errors. Detecting such errors while writing
-code and when running the app can save you a lot of time.
+code and not when running the app can save you a lot of time.
 
 My personal favorite is **Code Inspection** which is provided as default by the PyCharm IDE.
 You can obviously choose your favorite as per your requirements. This article explains it
 nicely on improving [code quality with linters](https://realpython.com/python-code-quality/#linters){:target="_blank"}.
 
 
+### Checkout some standard open-source Python Libraries
+It is a difficult task to read others' code (especially when you are a beginner in programming), but this
+is a good habit to develop. If one has to drive in the path of becoming a great Python programmer, they should have
+the ability to read, understand, and comprehend excellent code. One way of making 
+yourself comfortable is to read code from popular open-source libraries out there. Some
+examples include [Requests - An HTTP library written for humans](https://github.com/requests/requests){:target="_blank"}
+and [Flask - A microframework for Python](https://github.com/pallets/flask){:target="_blank"}. 
+You can find plenty of such examples on platforms like Github.
 
 
+### Welcome feedback on your code
+As a programmer, I have always believed that feedback on your code from experienced
+people weigh pretty high on improving your coding habits. If you can put your ego
+aside and think on the comments that others make about your code, this can help you
+learn faster than anything else. Obviously, not every feedback will be of high standards,
+but you will learn slowly to distinguish between what is bad and what is not.
