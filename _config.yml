@@ -13,7 +13,7 @@ markdown: kramdown
 source: .
 destination: ./_site
 permalink: /:title
-paginate: 8
+paginate: 5
 paginate_path: /page:num/
 
 # Default values
@@ -39,3 +39,7 @@ reverse: false
 
 # Syntax highlighter
 #highlighter: rouge
+
+
+# Disqus comments
+comments: true
