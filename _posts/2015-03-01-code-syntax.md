@@ -27,10 +27,12 @@ And this is a HTML example, with a linenumber:
 {% endhighlight %}
 
 Last, a Ruby example:
-{% highlight ruby linenos %}
+{% highlight python linenos %}
+    
+def hello():
+    print("This is a python code")
 
-def hello
-  puts "Hello World!"
-end
+if __name__ == "__main__":
+    hello()
 
 {% endhighlight %}
