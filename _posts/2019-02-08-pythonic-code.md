@@ -94,4 +94,4 @@ Keeping the above points in your mind will set you up with a mindset to write be
 python code. Sometimes, it can be a hassle to go through all the documentations to
 find out which code is better than the other. So, I have written a post that makes an
 effort to reveal the most useful python tricks that you can implement in your code on
-the go. Checkout this post [Tricks for writing Idiomatic Python Code]({% post_url 2019-02-09-idiomatic-python %}).
+the go. Checkout this post [Tricks for writing Idiomatic Python Code]({{ site.url }}/idiomatic-python).
