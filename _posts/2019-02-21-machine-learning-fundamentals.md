@@ -51,7 +51,7 @@ in this field.
 
 **NOTE**: A model that has **low bias & low variance** generally performs well in real datasets.
 
-- **Three commonly used methods for finding the sweet spot between simple and complicated models are:**
+- Three commonly used methods for finding the sweet spot between simple and complicated models are:
 	- **Regularization**
 	- **Boosting**
 	- **Bagging**
