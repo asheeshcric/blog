@@ -55,3 +55,19 @@ in this field.
 	- **Regularization**
 	- **Boosting**
 	- **Bagging**
+	
+
+## 5. AUC - ROC
+
+- A performance visualization for classification problems at various threshold settings.
+- **ROC** is a probability curve and **AUC** represents degree or measure of separability
+	- Higher the AUC, better the model is at predicting classes as it tells how the model is capable of distinguishing between classes
+
+- **ROC** is plotted with TPR (y-axis) against FPR (x-axis); where `FPR = 1- Specificity` 
+###  
+- **ROC** with AUC ~ 1, i.e. a model having ideal classification ability
+- ![AUC=1](https://i.ibb.co/7WBPC1V/roc-1.png)
+- **ROC** with AUC = 0.5, i.e. a model similar to randomly guessed classification
+- ![AUC=0.5](https://i.ibb.co/x872KDk/roc-2.png)
+- **ROC** with AUC = 0, i.e. a model that perfectly predicts the outcome oppositely, i.e. 1s for 0s and 0s for 1s
+- ![AUC=0](https://i.ibb.co/Gs36NZT/roc-3.png)
