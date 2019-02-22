@@ -1,5 +1,5 @@
 ---
-title: Machine Learning Fundamentals
+title: Machine Learning Fundamental Terminologies
 ---
 
 In this post, I have pointed out a few basic key notes about some popular
