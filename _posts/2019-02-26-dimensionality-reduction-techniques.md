@@ -35,6 +35,10 @@ depending on the approach we take and the type of data we have on hand.
     so that we can take a look at it
     - It tries to find a meaningful way to flatten the data by focusing on the things
     that are different among the variables (or features)
+    - PCA looks at the genes with the most variation
 
 
 - **Linear Discriminant Analysis (LDA)**
+    - LDA is like PCA, but it focuses on maximizing the separability among known
+    categories
+    - LDA tries to maximize the separation of known categories
