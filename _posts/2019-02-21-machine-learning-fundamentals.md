@@ -2,7 +2,11 @@
 title: Machine Learning Terminologies
 ---
 
-As a beginner, it is always a comfort to start with 
+As a beginner in data science or machine learning, it always adds a cushion if
+you already know some basic and most often used terminologies. You might feel
+intimidated at start hearing all those fancy AI/ML terms used by people everywhere.
+This is one of the posts that gives you a basic overview of the most used
+fundamental concepts in machine learning.
 
 ### 1. Cross Validation
 - **k-fold cross validation** approach: (k-1 training blocks with 1 testing block)
