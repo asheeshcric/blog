@@ -15,6 +15,7 @@ destination: ./_site
 permalink: /:title
 paginate: 5
 paginate_path: /page:num/
+future: true
 
 # Default values
 defaults:
