@@ -93,7 +93,7 @@ depending on the approach we take and the type of data we have on hand.
             - So, 
                 - *NewData* is the matrix consisting of the principal components
                 - *FeatureVector* is the matrix containing the eigenvectors
-                - 
+                - *ScaledData* is the scaled version of original dataset
             
 - **Linear Discriminant Analysis (LDA)**
     - LDA is like PCA, but it focuses on maximizing the separability among known
