@@ -94,6 +94,10 @@ depending on the approach we take and the type of data we have on hand.
                 - *NewData* is the matrix consisting of the principal components
                 - *FeatureVector* is the matrix containing the eigenvectors
                 - *ScaledData* is the scaled version of original dataset
+                
+                
+    - **To implement PCA with Python** checkout this code
+    **[here!](https://jvn.io/asheeshcric/532f43347afa49bc8cd7da0e8ef0e50f){:target="_blank"}**
             
 - **Linear Discriminant Analysis (LDA)**
     - LDA is like PCA, but it focuses on maximizing the separability among known
