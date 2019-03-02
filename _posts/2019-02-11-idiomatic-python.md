@@ -1,5 +1,6 @@
 ---
 title: Tricks for writing idiomatic Python code
+description: Some cool Python tricks that can make your code look elegant
 ---
 
 This post reveals some cool **Python3** tricks that can make your code look elegant and
@@ -114,3 +115,8 @@ one line.
     >>> reversed_string
     'gnirts a si sihT'
 {% endhighlight %}
+
+
+
+- Comment below if you know some additional tips and tricks for Python3 that I missed 
+out.
