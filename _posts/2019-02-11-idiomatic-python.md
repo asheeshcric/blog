@@ -116,6 +116,29 @@ one line.
     'gnirts a si sihT'
 {% endhighlight %}
 
+**8. Function argument unpacking**
+- In python you can assign dynamic arguments while making a function call
+- There are ways through which you can send any number of argument values to a user-defined
+function
+{% highlight python linenos %}
+    >>> def some_function(x, y, z):
+    ...     print(x, y, z)
+    ... 
+    >>> some_function(*[1, 2, 3])
+    1 2 3
+    >>> some_function(**{'x': 1, 'y': 2, 'z': 3})
+    1 2 3
+    
+    # Another way
+    >>> def another_function(*args, **kwargs):
+    ...     print(args)
+    ...     print(kwargs)
+    ...
+    >>> another_function(1, 2, 3, {'a': 1, 'b': 2}, (1, 2), **{'x': 1, 'y': 2})
+    (1, 2, 3, {'a': 1, 'b': 2}, (1, 2))
+    {'x': 1, 'y': 2}
+{% endhighlight %}
+
 
 
 - Comment below if you know some additional tips and tricks for Python3 that I missed 
