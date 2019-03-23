@@ -1,5 +1,6 @@
 ---
 title: How to write pythonic code?
+description: Who decides if a code written in Python is actually pythonic or not? These are some questions which I will try to discuss in this post so that you can have some insights.
 ---
 
 ![Pythonic Code](img/pythonic-code.jpg "Pythonic Code")

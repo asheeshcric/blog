@@ -1,6 +1,6 @@
 ---
 title: Tricks for writing idiomatic Python code
-description: Some cool Python tricks that can make your code look elegant
+description: This post reveals some cool Python3 tricks that can make your code look elegant and much efficient. The principle behind this is to write idiomatic python code so that it is more human-readable.
 ---
 
 This post reveals some cool **Python3** tricks that can make your code look elegant and
