@@ -1,8 +1,6 @@
 ---
 title: Implementation of a Neural Network from scratch
-description: Have you ever tried to implement a neural network from scratch, using Logistic Regression? This post
-reveals the fundamentals of building a neural network and training it with multiple training samples with the help of
-vectorization.
+description: Have you ever tried to implement a neural network from scratch, using Logistic Regression? This post reveals the fundamentals of building a neural network and training it with multiple training samples with the help of vectorization.
 ---
 
 ### 1. What is a Neural Network?
