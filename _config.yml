@@ -5,7 +5,7 @@ url: "http://www.jashish.com.np/blog"
 author:
   name: "Ashish Jaiswal"
   email: "ashiz2013@gmail.com"
-  url: "http://jashish.com.np/black"
+  url: "http://jashish.com.np/"
 
 # Build settings
 baseurl: / # Change this to your relative path (ex: /blog/), or leave just a /
