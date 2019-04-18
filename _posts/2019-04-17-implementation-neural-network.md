@@ -50,3 +50,71 @@ description: Have you ever tried to implement a neural network from scratch, usi
     - A = sigmoid(Z)
     - This is the output of a layer and acts an input to the second layer
     - If we go down vertically in a column of matrix A, it represents the activations from nodes of that hidden/output layer
+
+#### Explanation about the dimensions of the vectors W, X, Z, and A
+
+- Vector X is formed by stacking all the data points horizontally.
+    - X = [x1 x2 ... xm], where "m" is the number of samples
+    - Dimension of X is **(nx, m)**
+        - nx: the number of features in a data point
+        - m: the number of training samples
+
+- Vector W is formed by stacking the number of neurons/nodes in the layer for each data point of X
+    - W = [w1 w2 ... wm], where the number of rows is the number of nodes in the layer
+    - So, W.T is the transpose of W to make it compatible for multiplication with X
+    - Dimension of W.T is **(k, nx)**
+        - k: the number of nodes in the layer
+        - nx: the number of features in a data point
+        
+- Vector Z = W.T * X
+    - Its dimension is (k, nx) * (nx, m) = **(k, m)**
+    - k: the number of nodes in the layer
+    - m: the number of training samples
+
+- Vector A = sigmoid(Z)
+    - A is the result of using an activation function over Z to make the output in a range 0-1 (which is what the sigmoid does)
+    - Dimension is the same as that of Z, i.e. **(k, m)**
+
+### 5. Activation Functions
+
+- Hyperbolic tangent function almost always works better than a sigmoid function
+    - Sigmoid has an output range (0, 1) and tanh function has an output range (-1, 1)
+    - Only place where a sigmoid function can be useful is at the output layer of a binary classification, where you want the output to be between (0, 1)
+    
+- One of the downsides of both the sigmoid and tanh functions is that if the value of **z** is very large or very small, the slope of the function approximates to nearly zero. This can drastically slow down the gradient descent and can hinder convergence in those cases.
+
+
+- **RULE OF THUMB**
+    - Just use **Relu (Rectified Linear Unit)** function for all hidden layers and only use sigmoid at the output layer if you are trying to implement a binary classifier
+
+![](https://i.ibb.co/XLNFmTX/Screenshot-from-2019-04-18-17-06-27.png)
+
+- Sometimes, leaky relu performs better than relu, but relu is the ultimate choice in most cases.
+
+#### Why do we need to use non-linear activation functions?
+
+- The purpose of the activation function is to introduce non-linearity into the network
+
+- In turn, this allows you to model a response variable (aka target variable, class label, or score) that varies non-linearly with its explanatory variables
+
+- Non-linear means that the output cannot be reproduced from a linear combination of the inputs (which is not the same as output that renders to a straight line--the word for this is affine).
+
+- Another way to think of it: without a non-linear activation function in the network, a NN, no matter how many layers it had, would behave just like a single-layer perceptron, because summing these layers would give you just another linear function
+
+### 6. Derivatives of Activation Functions for Backpropagation
+
+![](https://i.ibb.co/NxXTGb2/Screenshot-from-2019-04-18-17-17-53.png)
+
+![](https://i.ibb.co/WyXmCCG/Screenshot-from-2019-04-18-17-19-02.png)
+
+![](https://i.ibb.co/1md51kM/Screenshot-from-2019-04-18-17-20-01.png)
+
+### 7. Gradient Descent for Neural Networks
+
+- Formula for computing derivatives for backpropagation
+
+![](https://i.ibb.co/kQD8wNk/Screenshot-from-2019-04-18-17-36-05.png)
+
+- Deriving the derivative equations for gradient descent from scratch is quite complicated and requires the knowledge of linear algebra and matrix calculus
+
+![](https://i.ibb.co/F8VzRhv/Screenshot-from-2019-04-18-17-46-44.png)
