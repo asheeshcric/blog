@@ -3,7 +3,6 @@ title: Practical Aspects of Deep Learning
 description: In order to improve a deep neural network that you built, you need to understand the practical aspects of Deep Learning and Neural Networks.
 ---
 
-
 ### 1. Train/dev/test sets
 
 - Generally, when training a neural network, we divide the entire dataset into three parts:
@@ -67,3 +66,31 @@ description: In order to improve a deep neural network that you built, you need 
         - The best technique to avoid overfitting the data and prevent high variance is to use a **regularization** technique
         - Regularization techniques tend to decrease the quantitative increase in the weight matrix of a neural network. This helps in not allowing the neural network to learn all the data in the training set
         - Some of the regularization techniques are L1/L2 Regularization, Dropout Regularization, Data Augmentation, Early Stopping, etc
+
+### 4. Regularization
+
+- When overfitting occurs during training a model, it is best to use a suitable **regularization** technique that can prevent it
+- There are generally two types of **regularization** techniques used widely (except in CNNs) are:
+    - L1 Regularization -- Lasso Regression
+    - L2 Regularization -- Ridge Regression
+
+- **Lasso (Least Absolute Shrinkage and Selection Operator) Regression / L1 Regularization**
+    - This technique adds **absolute value of magnitude** (mag(W)) of the weight matrix as penalty term to the loss function (J)
+    - It shrinks the less important feature's coefficient to zero thus, removing some features altogether
+        - Hence, it is generally used for **feature selection** in case we have a huge number of features
+- **Ridge Regression / L2 Regularization**
+    - It adds **squared magnitude** (W^2) as penalty term to the loss function
+    - If the value of **lambda** is too large, it will shrink the Weight matrix of the neural network to nearly zero which can make the model underfit the dataset
+    - This technique works very well to avoid the overfitting issue
+    - For neural networks, the L2 norm is often called **Frobenius Norm**
+
+
+![](https://i.ibb.co/jgC2rT1/Screenshot-from-2019-05-15-20-08-36.png)
+
+### 5. Why regularization prevents overfitting?
+
+- The regularization terms added to the loss function (J) encourages the weight matrix to diminish quantitavely
+- As the regularization hyperparameter **lambda** increases, the magnitude of the weight matrix **W** decreases
+    - This means more nodes are discarded (or made of less significance in the network) which kind of compells the model to generalize the training dataset
+- Also, making **lambda** very large can make the model to learn linear relationships only. This can make the model useless as it cannot learn complex (quadratic) relationships in the dataset
+    - e.g. For **tanh** activation, if the value of lambda is **very large**, it transforms the function to linearity inciting only linear relationships in the model
