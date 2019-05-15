@@ -94,3 +94,15 @@ description: In order to improve a deep neural network that you built, you need 
     - This means more nodes are discarded (or made of less significance in the network) which kind of compells the model to generalize the training dataset
 - Also, making **lambda** very large can make the model to learn linear relationships only. This can make the model useless as it cannot learn complex (quadratic) relationships in the dataset
     - e.g. For **tanh** activation, if the value of lambda is **very large**, it transforms the function to linearity inciting only linear relationships in the model
+
+### 6. Dropout Regularization
+
+- Most commonly used for Convolutional Neural Networks (CNNs), **dropout regularization** is a technique to randomly remove nodes for each training data and iteration
+- To select if a node should be removed or not is chosen by using a probability randomness given by **keep_prob** hyperparameter
+    - e.g. If **keep_prob = 0.6**, then the chance for removing the node from that layer is 40%
+- The probability for node removal may vary for each layer
+{% highlight python linenos %}
+    >>> d = np.random.randn(activation.shape[0], activation.shape[1])
+    >>> activation = np.multiply(activation, d)
+    >>> activation /= keep_prob   # inverted dropout (to neutralize the changes of dropout in the test set)
+{% endhighlight %}
