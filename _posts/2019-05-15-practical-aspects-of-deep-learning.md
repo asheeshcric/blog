@@ -106,3 +106,23 @@ description: In order to improve a deep neural network that you built, you need 
     >>> activation = np.multiply(activation, d)
     >>> activation /= keep_prob   # inverted dropout (to neutralize the changes of dropout in the test set)
 {% endhighlight %}
+
+### 7. Understanding dropout regularization technique
+
+- In a neural network, dropout is generally applied to the hidden layers and not to the input or output layers
+- This is because the model should not be ignoring input features from the first layer as it may not perform well on the dataset
+- Dropout is a famous technique mostly used in **Computer Vision** applications
+
+### 8. Other regularization techniques
+
+- Apart from L1 regularization, L2 regularization, and Dropout regularization, we can also use some other techniques to avoid overfitting suitable for our applications such as:
+    1. Data Augmentation
+        -  Generally applied for image datasets, where an image is rotated, flipped or cropped to introduce new input to the dataset
+        - This technique helps in increasing the size of the dataset, thus helping the model to avoid overfitting
+
+    2. Early Stopping
+        - When training a neural network, we can track the training error and the dev/validation error. There is always a point to which the training error continuously decreases and then starts rising down again
+        - Such points are regarded to be the boundary between a generalized model and a overfitted model
+        - So, if we can apply early stopping (based on the number of epochs), we can stop the model from overfitting
+
+        ![](https://i.ibb.co/y5NYXjC/Screenshot-from-2019-05-23-20-31-23.png)
