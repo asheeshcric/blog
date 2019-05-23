@@ -1,5 +1,5 @@
 ---
-title: Practical Aspects of Deep Learning (Part 1)
+title: Practical Aspects of Deep Learning - 1
 description: In order to improve a deep neural network that you built, you need to understand the practical aspects of Deep Learning and Neural Networks.
 ---
 
@@ -126,3 +126,7 @@ description: In order to improve a deep neural network that you built, you need 
         - So, if we can apply early stopping (based on the number of epochs), we can stop the model from overfitting
 
         ![](https://i.ibb.co/y5NYXjC/Screenshot-from-2019-05-23-20-31-23.png)
+
+
+This concludes the first part of "Practical Aspects of Deep Learning". For more details, please go on to the next
+post from [here.]({{ site.url }}/practical-aspects-of-deep-learning-part-2)

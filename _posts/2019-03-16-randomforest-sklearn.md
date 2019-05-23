@@ -1,5 +1,5 @@
 ---
-title: RandomForest with scikit-learn - Part 1
+title: RandomForest with scikit-learn (Part 1)
 description: Learn how to apply a RandomForest classifier for any arbitrary dataset and generate surprisingly accurate results.
 ---
 
