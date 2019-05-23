@@ -1,5 +1,5 @@
 ---
-title: Practical Aspects of Deep Learning
+title: Practical Aspects of Deep Learning (Part 1)
 description: In order to improve a deep neural network that you built, you need to understand the practical aspects of Deep Learning and Neural Networks.
 ---
 
