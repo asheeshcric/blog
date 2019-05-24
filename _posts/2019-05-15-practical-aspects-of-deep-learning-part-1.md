@@ -3,6 +3,13 @@ title: Practical Aspects of Deep Learning - 1
 description: In order to improve a deep neural network that you built, you need to understand the practical aspects of Deep Learning and Neural Networks.
 ---
 
+Deep Learning is a subset of Machine Learning which has come to evolve highly in the past few years. It involves
+neural networks with the number of hidden layers greater than one, hence the term **"deep"**. The basis of a neural
+network in deep learning is **Logistic Regression** and one should understand it well before moving ahead constructing
+neural networks. Following are a few basic terminologies and their explanations that are vastly used in deep learning.
+This should give you a basic understanding of how a deep neural network is trained and the strategies to make it
+efficient.
+
 ### 1. Train/dev/test sets
 
 - Generally, when training a neural network, we divide the entire dataset into three parts:
