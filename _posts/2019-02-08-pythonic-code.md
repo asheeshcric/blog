@@ -91,9 +91,10 @@ but you will slowly learn to distinguish between what is bad and what is not.
 
 
 ### Ensuring clean code with parameterized python
-Parameterization in Python is one of the most elegant way to produce clean and pythonic code. This technique mainly
-helps to prevent using copy-paste programming with the use of functions and classes. If you want to have a deeper
-understanding for implementing parameterization in Python, then checkout this cool post from [Toptal.](https://www.toptal.com/python/python-parameterized-design-patterns)
+Parameterization in Python is one of the most elegant ways to produce clean and pythonic code. This technique mainly
+helps us prevent using copy-paste programming with the introduction of functions and classes. If you want to have a
+deeper understanding on writing parameterized python code, then checkout this cool and insightful post from
+[Toptal.](https://www.toptal.com/python/python-parameterized-design-patterns){:target="_blank"}
 
 
 ### Writing Idiomatic Python code
