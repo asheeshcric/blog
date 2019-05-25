@@ -32,3 +32,21 @@ processes to check the gradients of the network.
     - In this case, the earlier layers explode with very large gradients, making the model useless
 
 ![](https://i.ibb.co/MNqQW13/Screenshot-from-2019-05-24-09-59-36.png)
+
+### 11. Weight Initialization for Deep Neural Networks
+
+- Initializing weights W to zero
+    - We know that if we initialize all the weights to zero, then our network acts like a linear model as all the layers basically learn the same thing. This makes the model just a linear combination of layers
+    - So, the most important thing is to avoid doing so
+
+- Initializing weights randomly
+    - Although this may sound an appropriate approach to initialize the weights of a network, in some conditions (when proper activations are not used), it may lead to vanishing or exploding gradients
+    - So, this method cannot be said as a bullet proof method
+
+- Using some heuristic to initialize weights
+    - We can some heuristics from the model to assign the weights of the layers according to the activation function used in the layer
+    - The images below show how we should actually initialize weights in case of **RELU** and **tanh** activations
+
+![](https://i.ibb.co/nCsYSMB/Screenshot-from-2019-05-25-09-07-09.png)
+
+- **NOTE:** Here, *"size_l"* refers to the number of nodes in the lth layer, i.e. *n[l]*
