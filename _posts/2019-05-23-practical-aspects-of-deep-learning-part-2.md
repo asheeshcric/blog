@@ -54,3 +54,20 @@ processes to check the gradients of the network.
 - **NOTE:** Here, *"size_l"* refers to the number of nodes in the lth layer, i.e. *n[l]*
 
 ![](https://i.ibb.co/TRj2GyG/Screenshot-from-2019-05-25-09-25-36.png)
+
+
+
+- This concludes the key points that you should be aware of when building a practical deep neural network. The image below demonstrates the workflow of a deep neural network along with forward and backward propagation. This might generate an intuition for you to build practical neural networks from scratch in Python.
+
+![](https://i.ibb.co/Qdy8W0D/Screenshot-from-2019-05-07-20-19-13.png)
+
+- It is very important to understand how forward propagation and backward propagation (with gradient descent) work in a deep neural network. The following formulae will always keep you in track when building a neural network from scratch.
+
+![](https://i.ibb.co/85rXKYB/Screenshot-from-2019-05-06-20-41-00.png)
+
+
+Please add your suggestions about the post in the comments section below. I would love to have your insights on
+ways to make this post better. Thank you for reading.
+
+
+
