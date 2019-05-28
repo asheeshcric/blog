@@ -16,11 +16,8 @@ efficient.
     - Training set
     - Dev (or Validation) set
     - Testing set
-
 - When the size of the dataset is large (~ 1 million or above), the ratio of the sets is usually taken as 98:1:1
-
 - Dev or validation set is used to tune the network and hence it can get overfitted with the network that we are training on
-
 - Dev set and Test set should come from the same distribution for proper validation of the neural network
 
 
@@ -30,7 +27,6 @@ efficient.
     - High bias refers to higher training error rate in a neural network
     - Generally, high bias is a result of **underfitting**
         - This means that the model is too weak to understand the complicated relation of your training set and the target set
-
 - Variance on the other hand refers to how well our trained model is able to generalize on new data (i.e. data it has never seen before)
     - If a model has overfit its training set, it does not do well with the test set and new data that it encounters
     - High variance is a sign for **overfitting**
