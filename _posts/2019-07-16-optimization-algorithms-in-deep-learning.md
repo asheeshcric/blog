@@ -71,7 +71,7 @@ to update the weights instead
 it to the *"mini-batch gradient descent"* algorithm
 
 
-### 4. RMSprop
+### 4. RMSprop Optimizer
 
 - RMSprop is quite similar to G.D with Momentum except for the fact that it restricts the oscillations in the vertical direction
     - This allows the descent to take greater leaps in the horizontal direction with greater **learning rate** as the vertical movement is restricted
@@ -84,3 +84,29 @@ it to the *"mini-batch gradient descent"* algorithm
     > b = b - $$\alpha$$ * db / $$\sqrt{s_{db} + \epsilon}$$  
     
 - RMSprop and Momentum algorithms both decrease the vertical oscillations and increase horizontal speed, making the descent converge faster for a given cost function
+
+
+### 5. Adam Optimization Algorithm
+
+- It combines the techniques from both RMSprop and Momentum algorithms to calculate the gradients
+- The term **Adam** is derived from **Adaptive Moment Estimation**
+- First, it calculates gradients using the momentum method:
+    > $$v_{dw}$$ = $$\beta_{1}$$ $$v_{dw}$$ + (1 - $$\beta_{1}$$)dw  
+    > $$v_{db}$$ = $$\beta_{1}$$ $$v_{db}$$ + (1 - $$\beta_{1}$$)db
+    
+    > $$v_{dw_{c}}$$ = $$v_{dw}$$ / (1 - $$\beta_{1}^{t}$$),  <-- *where  $$v_{dw_{c}}$$ is the corrected form of $$v_{dw}$$*  
+    > $$v_{db_{c}}$$ = $$v_{db}$$ / (1 - $$\beta_{1}^{t}$$),  <-- *where  $$v_{db_{c}}$$ is the corrected form of $$v_{db}$$*
+    
+- Then we have the gradients using the RMSprop method:
+    > $$s_{dw}$$ = $$\beta_{2}$$ $$s_{dw}$$ + (1 - $$\beta_{2}$$) $$dw^{2}$$  
+    > $$s_{db}$$ = $$\beta_{2}$$ $$s_{db}$$ + (1 - $$\beta_{2}$$) $$db^{2}$$
+    
+    > $$s_{dw_{c}}$$ = $$s_{dw}$$ / (1 - $$\beta_{2}^{t}$$),  <-- *where  $$s_{dw_{c}}$$ is the corrected form of $$s_{dw}$$*  
+    > $$s_{db_{c}}$$ = $$s_{db}$$ / (1 - $$\beta_{2}^{t}$$),  <-- *where  $$s_{db_{c}}$$ is the corrected form of $$s_{db}$$*
+    
+    
+- Finally the weights are updated as follows:
+    > w = w - $$\alpha$$ *  $$v_{dw_{c}}$$ / $$\sqrt{s_{dw_{c}} + epsilon}$$  
+    > b = b - $$\alpha$$ *  $$v_{db_{c}}$$ / $$\sqrt{s_{db_{c}} + epsilon}$$
+    
+- Here, the hyperparameters are $$\alpha$$, $$\beta_{1}$$ = 0.9, $$\beta_{2}$$ = 0.999, and $$\epsilon$$ = $$10^{-8}$$ with practical use-case values
