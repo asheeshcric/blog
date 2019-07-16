@@ -17,7 +17,7 @@ upon our application and the type of dataset that we use.
     - So, if the training dataset used is very large, then the algorithm takes huge amount of time
 - To mitigate this problem, we use **mini-batch gradient descent**, taking batches from training data for each descent
     - This helps gradient descent to progress smoothly by not requiring the entire training dataset on each step (or descent)
-- A mini-batch from the training set is represented as $X^{\{t\}}$, $Y^{\{t\}}$ (we use curly braces to represent the $t^{th}$ mini-batch)
+- A mini-batch from the training set is represented as $$X^{\{t\}}$$, $$Y^{\{t\}}$$ (we use curly braces to represent the $$t^{th}$$ mini-batch)
 ![](https://i.ibb.co/ZVnG6dD/Screenshot-from-2019-07-15-11-52-11.png)
 
 - Each step of the descent is on a mini-batch instead of the whole training set
@@ -39,12 +39,12 @@ upon our application and the type of dataset that we use.
 
 - Used on basically any data that is in sequence
 - It is also referred as **smoothing** of the data (or timeseries)
-    > $$v_{t}$$ = $$\beta$$v_{t-1}$$ + (1 - $$\beta$$)$$\theta_{t}$$
-- Generally, we take $\beta$ = 0.9 for practical consideration
+    > $$v_{t}$$ = $$\beta$$$$v_{t-1}$$ + (1 - $$\beta$$)$$\theta_{t}$$
+- Generally, we take $$\beta$$ = 0.9 for practical consideration
 ![](https://i.ibb.co/7VmTvRh/Screenshot-from-2019-07-16-10-15-20.png)
 
 ### Bias Correction
 
-- In exponentially weighted averages, when the initial value $v_{0}$ = 0, then it can create an unwanted bias making the initial averahes to be much lower than the actual. So, we use the following formula in place of $v_{t}$
-    - $$v_{t}$$ = $$v_{t}$$ / (1 - $$\beta^{t}$$)
+- In exponentially weighted averages, when the initial value $$v_{0}$$ = 0, then it can create an unwanted bias making the initial averages to be much lower than the actual. So, we use the following formula in place of $$v_{t}$$
+    > $$v_{t}$$ = $$v_{t}$$ / (1 - $$\beta^{t}$$)
     - This is required for bias correction and not letting the initial values be affected by a fixed bias towards **zero** or **origin**
