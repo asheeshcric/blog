@@ -10,7 +10,7 @@ to expedite the training process even with indefinitely larger training datasets
 upon our application and the type of dataset that we use.
 
 
-## 1. Mini-batch Gradient Descent
+### 1. Mini-batch Gradient Descent
 
 - Gradient descent is an algorithm in machine learning that is used to evaluate the parameters that are used in the model
 - The main downside of Gradient Descent is that it has to go through the entire training set on each descent (or iteration)
@@ -25,7 +25,7 @@ upon our application and the type of dataset that we use.
 - 1 epoch = A single pass through the entire training set (going through all mini-batches of the set for once)
     - The only difference is that the gradient descent gets updated after each mini-batch is processed within a running epoch unlike the full gradient descent
 
-### Size of Mini-batch
+#### Size of Mini-batch
 
 - Size = "m": Batch Gradient Descent (too slow although has better accuracy)
 - Size = "1": Stochastic Gradient Descent
@@ -35,7 +35,7 @@ upon our application and the type of dataset that we use.
 
 - Hence, size of mini-batch is also another **hyperparameter** to consider
 
-## 2. Exponentially Weighted Averages
+### 2. Exponentially Weighted Averages
 
 - Used on basically any data that is in sequence
 - It is also referred as **smoothing** of the data (or timeseries)
@@ -43,7 +43,7 @@ upon our application and the type of dataset that we use.
 - Generally, we take $$\beta$$ = 0.9 for practical consideration
 ![](https://i.ibb.co/7VmTvRh/Screenshot-from-2019-07-16-10-15-20.png)
 
-### Bias Correction
+#### Bias Correction
 
 - In exponentially weighted averages, when the initial value $$v_{0}$$ = 0, then it can create an unwanted bias making 
 the initial averages to be much lower than the actual. So, we use the following formula to update the value of $$v_{t}$$
@@ -51,4 +51,20 @@ the initial averages to be much lower than the actual. So, we use the following 
     - This is required for bias correction and not letting the initial values be affected by a fixed bias towards 
     **zero** or **origin**
     
+    
+### 3. Gradient Descent with Momentum
+
+- While using **mini-batch gradient descent**, the parameters get updated after each mini-batch cycle (having some variance
+in each update). This make the gradient descent to oscillate a lot while moving towards the convergence
+- So, gradient descent with momentum computes an exponentially weighted averages of the gradients and then use that gradient
+to update the weights instead
+- This helps in reducing the oscillations during G.D. and makes the convergence faster
+    > $$v_{dw}$$ = $$\beta$$ $$v_{dw}$$ + (1 - $$\beta$$)dw  
+    > $$v_{db}$$ = $$\beta$$ $$v_{db}$$ + (1 - $$\beta$$)db  
+    > w = w - $$\alpha$$$$v_{dw}$$  &  b = b - $$\alpha$$$$v_{db}$$  
+    
+- So, here "$$\beta$$" is a new hyperparameter involved which basically carries out exponentially weighted averages on each update making the convergence faster
+    - Generally, the practically considered value of $$\beta$$ is ~ 0.9
+- Hence, this method is basically taking *"exponentially weighted moving averages"* method and merging
+it to the *"mini-batch gradient descent"* algorithm
  
