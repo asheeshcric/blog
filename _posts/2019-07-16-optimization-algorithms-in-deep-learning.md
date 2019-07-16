@@ -45,6 +45,10 @@ upon our application and the type of dataset that we use.
 
 ### Bias Correction
 
-- In exponentially weighted averages, when the initial value $$v_{0}$$ = 0, then it can create an unwanted bias making the initial averages to be much lower than the actual. So, we use the following formula in place of $$v_{t}$$
+- In exponentially weighted averages, when the initial value $$v_{0}$$ = 0, then it can create an unwanted bias making 
+the initial averages to be much lower than the actual. So, we use the following formula to update the value of $$v_{t}$$
     > $$v_{t}$$ = $$v_{t}$$ / (1 - $$\beta^{t}$$)
-    - This is required for bias correction and not letting the initial values be affected by a fixed bias towards **zero** or **origin**
+    - This is required for bias correction and not letting the initial values be affected by a fixed bias towards 
+    **zero** or **origin**
+    
+ 
