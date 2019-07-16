@@ -59,12 +59,28 @@ in each update). This make the gradient descent to oscillate a lot while moving 
 - So, gradient descent with momentum computes an exponentially weighted averages of the gradients and then use that gradient
 to update the weights instead
 - This helps in reducing the oscillations during G.D. and makes the convergence faster
-    > $$v_{dw}$$ = $$\beta$$ $$v_{dw}$$ + (1 - $$\beta$$)dw  
-    > $$v_{db}$$ = $$\beta$$ $$v_{db}$$ + (1 - $$\beta$$)db  
-    > w = w - $$\alpha$$$$v_{dw}$$  &  b = b - $$\alpha$$$$v_{db}$$  
+    > $$v_{dw}$$ = $$\beta$$ $$v_{dw}$$ + (1 - $$\beta$$) dw  
+    > $$v_{db}$$ = $$\beta$$ $$v_{db}$$ + (1 - $$\beta$$) db  
+    
+    > w = w - $$\alpha$$ $$v_{dw}$$  
+    > b = b - $$\alpha$$ $$v_{db}$$  
     
 - So, here "$$\beta$$" is a new hyperparameter involved which basically carries out exponentially weighted averages on each update making the convergence faster
     - Generally, the practically considered value of $$\beta$$ is ~ 0.9
 - Hence, this method is basically taking *"exponentially weighted moving averages"* method and merging
 it to the *"mini-batch gradient descent"* algorithm
- 
+
+
+### 4. RMSprop
+
+- RMSprop is quite similar to G.D with Momentum except for the fact that it restricts the oscillations in the vertical direction
+    - This allows the descent to take greater leaps in the horizontal direction with greater **learning rate** as the vertical movement is restricted
+    
+- In this case, the exponentially weighted moving averages are calculated differently as shown below
+    > $$s_{dw}$$ = $$\beta$$ $$s_{dw}$$ + (1 - $$\beta$$) $$dw^{2}$$  
+    > $$s_{db}$$ = $$\beta$$ $$s_{db}$$ + (1 - $$\beta$$) $$db^{2}$$  
+    
+    > w = w - $$\alpha$$ * dw / $$\sqrt{s_{dw} + \epsilon}$$  
+    > b = b - $$\alpha$$ * db / $$\sqrt{s_{db} + \epsilon}$$  
+    
+- RMSprop and Momentum algorithms both decrease the vertical oscillations and increase horizontal speed, making the descent converge faster for a given cost function
