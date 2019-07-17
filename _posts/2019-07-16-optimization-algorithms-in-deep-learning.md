@@ -9,6 +9,9 @@ desirable accuracy and details. In this post, we discuss about a few optimizatio
 to expedite the training process even with indefinitely larger training datasets. The usage of the algorithms solely depend
 upon our application and the type of dataset that we use.
 
+If you want to check out the implementation of optimization algorithms in deep neural networks, kindly visit this link here:
+**[Optimization Algorithms - DNN](https://github.com/asheeshcric/deeplearning.ai/blob/master/Assignments/2.%20Improving%20Deep%20Neural%20Networks:%20Hyperparameter%20tuning%2C%20Regularization%20and%20Optimization/4.%20Optimization%2Bmethods.ipynb){:target="_blank"}**
+
 
 ### 1. Mini-batch Gradient Descent
 
@@ -154,3 +157,7 @@ the convergence process in a deep neural networks. Incorporating these algorithm
 the training process from days to hours or even sometimes to minutes. Don't forget to check
 out other posts related to machine learning and deep learning on my blog. Thank you for reading
 and cheers for your next machine learning model.
+
+
+If you want to check out the implementation of optimization algorithms in deep neural networks, kindly visit this link here:
+**[Optimization Algorithms - DNN](https://github.com/asheeshcric/deeplearning.ai/blob/master/Assignments/2.%20Improving%20Deep%20Neural%20Networks:%20Hyperparameter%20tuning%2C%20Regularization%20and%20Optimization/4.%20Optimization%2Bmethods.ipynb){:target="_blank"}**
