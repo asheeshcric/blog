@@ -13,6 +13,12 @@ If you want to check out the implementation of optimization algorithms in deep n
 **[Optimization Algorithms - DNN](https://github.com/asheeshcric/deeplearning.ai/blob/master/Assignments/2.%20Improving%20Deep%20Neural%20Networks:%20Hyperparameter%20tuning%2C%20Regularization%20and%20Optimization/4.%20Optimization%2Bmethods.ipynb){:target="_blank"}**
 
 
+Here are the main differences among different types of gradient descents.
+
+![](https://i.ibb.co/F3b2rKb/SGDvBGD.png)
+---
+![](https://i.ibb.co/VgJZHHW/SGDvMBGD.png)
+
 ### 1. Mini-batch Gradient Descent
 
 - Gradient descent is an algorithm in machine learning that is used to evaluate the parameters that are used in the model
