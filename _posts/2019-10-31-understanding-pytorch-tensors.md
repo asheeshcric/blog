@@ -2,6 +2,8 @@
 import torch
 ```
 
+###### Creating a tensor in PyTorch
+
 
 ```python
 a = torch.tensor([1, 2, 3, 4])
@@ -9,7 +11,6 @@ a = torch.tensor([1, 2, 3, 4])
 
 
 ```python
-# Created tensor
 a
 ```
 
@@ -20,9 +21,10 @@ a
 
 
 
+###### Checking the tensor type
+
 
 ```python
-# Checking the tensor type
 a.type()
 ```
 
@@ -33,9 +35,10 @@ a.type()
 
 
 
+###### Type of data stored in the tensor
+
 
 ```python
-# Type of data stored in the tensor
 a.dtype
 ```
 
@@ -46,9 +49,10 @@ a.dtype
 
 
 
+###### Create a tensor of specific type
+
 
 ```python
-# Create a tensor of specific type
 b = torch.FloatTensor([1, 2, 3, 4])
 b.type()
 ```
@@ -60,9 +64,10 @@ b.type()
 
 
 
+###### Size and dimension of a tensor
+
 
 ```python
-# Size and dimension of a tensor
 print(a.size())
 print(a.ndimension())
 ```
@@ -71,9 +76,10 @@ print(a.ndimension())
     1
 
 
+###### Adding a new dimension to a tensor
+
 
 ```python
-# Adding a new dimension to a tensor
 a_col = a.view(4, 1) # 4 rows and 1 column
 # OR
 a_col = a.view(-1, 1) # In case you don't know the number of rows, both do the same thing
@@ -87,6 +93,8 @@ a_col.size()
     torch.Size([4, 1])
 
 
+
+###### Numpy array and tensors
 
 
 ```python
@@ -149,6 +157,8 @@ z
 
 
 
+###### Multiplication and dot product of two tensors
+
 
 ```python
 # Multiplying two tensors
@@ -164,6 +174,8 @@ print(d)
     tensor([ 3.0000,  3.9900, -0.8400])
     tensor(6.1500)
 
+
+###### Adding scalar to a tensor (Broadcasting)
 
 
 ```python
@@ -218,9 +230,10 @@ torch.linspace(-2, 2, steps=9).type(torch.IntTensor)
 
 
 
+###### Plotting a sin(x) function
+
 
 ```python
-# Plotting a sin(x) function
 x = torch.linspace(0, 2*np.pi, 100)
 y = torch.sin(x)
 
@@ -232,7 +245,7 @@ plt.plot(x.numpy(), y.numpy())
 
 
 
-    [<matplotlib.lines.Line2D at 0x7f8cc3d07780>]
+    [<matplotlib.lines.Line2D at 0x7f8cc37d9940>]
 
 
 
