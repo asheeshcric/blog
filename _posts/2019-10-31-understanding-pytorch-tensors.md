@@ -250,5 +250,5 @@ plt.plot(x.numpy(), y.numpy())
 
 
 
-![png](../img/pytorch_tensors_plot.png)
+![png](img/pytorch_tensors_plot.png)
 
