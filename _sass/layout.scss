@@ -202,7 +202,9 @@ img[title="Emerald"] {
 
 code {
   color: #36579d;
-  background-color: #eff0f1;
+  border: 1px solid #999;
+  display: block;
+  padding: 20px;
 }
 
 /* Set the vertical rhythm (and padding-left) for lists inside post content */
