@@ -245,10 +245,164 @@ plt.plot(x.numpy(), y.numpy())
 
 
 
-    [<matplotlib.lines.Line2D at 0x7f8cc37d9940>]
+    [<matplotlib.lines.Line2D at 0x7f9855de8898>]
 
 
 
 
 ![png](img/pytorch_tensors_plot.png)
+
+
+### Derivatives in PyTorch
+
+
+```python
+x = torch.tensor(2.0, requires_grad=True)
+y = x**2
+y.backward()
+x.grad
+```
+
+
+
+
+    tensor(4.)
+
+
+
+![](https://i.ibb.co/n3k5z7k/derivative-in-pytorch.png)
+
+
+```python
+x = torch.linspace(-10, 10, 10, requires_grad=True)
+Y = x**2
+y = torch.sum(x**2)
+
+y.backward()
+
+plt.plot(x.detach().numpy(), Y.detach().numpy(), label='function')
+plt.plot(x.detach().numpy(), x.grad.detach().numpy(), label='derivative')
+plt.legend()
+```
+
+
+
+
+    <matplotlib.legend.Legend at 0x7f9852d27780>
+
+
+
+
+![png](img/pytorch_tensors_plot_2.png)
+
+
+![](https://i.ibb.co/9wsW4wk/Screenshot-from-2019-11-01-11-58-09.png)
+
+## Dataset Class in PyTorch
+
+
+```python
+from torch.utils.data import Dataset
+```
+
+###### The class below inherits the Dataset class and is used to represent data in a table (x, y)
+
+
+```python
+class ToySet(Dataset):
+    def __init__(self, length=100, transform=None):
+        self.x = 2*torch.ones(length, 2)
+        self.y = torch.ones(length, 1)
+        self.len = length
+        self.transform = transform
+        
+    def __getitem__(self, index):
+        sample = self.x[index], self.y[index]
+        if self.transform:
+            sample = self.transform(sample)
+            
+        return sample
+    
+    def __len__(self):
+        return self.len
+```
+
+
+```python
+dataset = ToySet()
+for i in range(3):
+    x, y = dataset[i]
+    print(i, 'x: {}, y: {}'.format(x, y))
+```
+
+    0 x: tensor([2., 2.]), y: tensor([1.])
+    1 x: tensor([2., 2.]), y: tensor([1.])
+    2 x: tensor([2., 2.]), y: tensor([1.])
+
+
+###### Making a Transform class for our dataset that transforms our samples
+
+
+```python
+class add_mult(object):
+    def __init__(self, addx=1, muly=1):
+        self.addx = addx
+        self.muly = muly
+        
+    def __call__(self, sample):
+        x, y = sample
+        x += self.addx
+        y *= self.muly
+        return x, y
+```
+
+
+```python
+a_m = add_mult()
+dataset = ToySet(transform=a_m)
+dataset[0]
+```
+
+
+
+
+    (tensor([3., 3.]), tensor([1.]))
+
+
+
+
+```python
+# Another transform class to modify our data samples
+class mult(object):
+    def __init__(self, mul=100):
+        self.mul = mul
+        
+    def __call__(self, sample):
+        x, y = sample
+        x *= self.mul
+        y *= self.mul
+        return x, y
+```
+
+###### Now, if we need to use multiple transforms to our data samples
+
+
+```python
+from torchvision import transforms
+```
+
+
+```python
+# This applies the two transforms one by one to the data samples
+data_transform = transforms.Compose([add_mult(), mult()])
+
+data_set = ToySet(transform=data_transform)
+data_set[0]
+```
+
+
+
+
+    (tensor([300., 300.]), tensor([100.]))
+
 
