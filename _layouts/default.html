@@ -1,97 +1,22 @@
 <!DOCTYPE html>
-<html>
+<!--
+    So Simple Jekyll Theme 3.2.0
+    Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/so-simple-theme/blob/master/LICENSE
+-->
+<html lang="{{ page.lang | default: site.lang | default: 'en-US' }}" class="no-js">
+  {% include head.html %}
 
-{% include head.html %}
+  <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %} {% if page.entries_layout == 'grid' %}page--wide{% endif %} {{ page.title | slugify }}">
+    {% include skip-links.html %}
+    {% include navigation.html %}
+    {% include masthead.html %}
 
-<body>
-	<div id="wrap">
-	  	
-	  	<!-- Navigation -->
-	  	{% include menu.html %}
-    
-    <!-- Icon menu -->
-	  <a {% if site.reverse == true %}id="nav-menu-left"{% else %}id="nav-menu"{% endif %}>
-	  	<div id="menu"></div>
-	  </a>
+    {{ content }}
 
-      <!-- Header -->
-      {% if site.custom_header == true %}
-        {% include header-custom.html %}
-      {% else %}
-        {% include header.html %}
-      {% endif %}
+    {% include footer.html %}
+    {% include scripts.html %}
+  </body>
 
-    <!-- Main content -->
-	  <div id="container">
-          <!-- Google Adsense -->
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          <!-- Square Ad Unit -->
-          <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-client="ca-pub-6362358426190245"
-                data-ad-slot="8199539244"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
-          <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
-		  
-		<main>
-
-			{{ content }}
-
-            <!-- Google Adsense -->
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- Square Ad Unit -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-6362358426190245"
-                 data-ad-slot="8199539244"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-
-	    </main>
-		
-		  <!-- Pagination links -->
-      {% if paginator.total_pages > 1 %}
-        <div class="pagination">
-          {% if paginator.previous_page == 1 %}
-            <a href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}" class="page-item">&laquo;</a>
-          {% elsif paginator.previous_page%}
-            <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="page-item">&laquo;</a>
-          {% else %}
-            <span class="page-item">&laquo;</span>
-          {% endif %}
-        
-          {% for page in (1..paginator.total_pages) %}
-            {% if page == paginator.page %}
-              <span class="page-item">{{ page }}</span>
-            {% elsif page == 1 %}
-              <a href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}" class="page-item">{{ page }}</a>
-            {% else %}
-              <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}" class="page-item">{{ page }}</a>
-            {% endif %}
-          {% endfor %}
-        
-          {% if paginator.next_page %}
-            <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="page-item">&raquo;</a>
-          {% else %}
-            <span class="page-item">&raquo;</span>
-          {% endif %}
-        </div>
-        {% endif %}
-
-	  </div>
-	    
-	    <!-- Footer -->
-	    {% include footer.html %}
-
-	    <!-- Script -->
-      {% include script.html %}
-
-	</div>
-</body>
 </html>

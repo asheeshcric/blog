@@ -1,51 +1,41 @@
 ---
 layout: default
 ---
-<article id="post-page">
-	<h2>{{ page.title }}</h2>		
-	<time datetime="{{ page.date | date_to_xmlschema }}" class="by-line">{{ page.date | date_to_string }}</time>
-	<div class="content">
 
-		{{ content }}
+<main id="main" class="main-content" aria-label="Content">
+  <article class="h-entry">
+    {% include page-image.html %}
+    <div class="page-wrapper">
+      <header class="page-header">
+        {% assign title = page.title | markdownify | strip_html %}
+        {% if page.link %}
+          <h1 id="page-title" class="page-title p-name"><a href="{{ page.link }}">{{ title }} <span class="link-arrow">&rarr;</span></a></h1>
+        {% else %}
+          <h1 id="page-title" class="page-title p-name">{{ title }}</h1>
+        {% endif %}
+      </header>
 
-		<!-- Google Adsense -->
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- Square Ad Unit -->
-        <ins class="adsbygoogle"
-              style="display:block"
-              data-ad-client="ca-pub-6362358426190245"
-              data-ad-slot="8199539244"
-              data-ad-format="auto"
-              data-full-width-responsive="true"></ins>
-        <script>
-              (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-		
-	</div>
-</article>
+      <div class="page-sidebar">
+        {% include page-author.html %}
+        {% include page-categories.html %}
+        {% include page-tags.html %}
+      </div>
 
+      <div class="page-content">
+        <div class="e-content">
+          {{ content }}
+        </div>
 
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_inline_share_toolbox_nf2c"></div>
+        {% if page.share %}
+          {% include social-share.html %}
+        {% endif %}
 
+        {% if site.disqus.shortname %}
+          {% include disqus-comments.html %}
+        {% endif %}
 
-<div id="disqus_thread"></div>
-<script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://jashish.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-
+        {% include page-pagination.html %}
+      </div>
+    </div>
+  </article>
+</main>

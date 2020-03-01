@@ -1,46 +1,107 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
 # Site settings
-title: Blog | Ashish Jaiswal
-description: "A place to show off my thoughts."
-url: "http://www.jashish.com.np/blog"
-author:
-  name: "Ashish Jaiswal"
-  email: "ashiz2013@gmail.com"
-  url: "http://jashish.com.np/"
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+theme: jekyll-theme-so-simple
+# remote_theme: mmistakes/so-simple-theme
+skin: "/assets/css/skins/default.css"
+locale: en-US
+title: "My Awesome Site"
+description: "It really is the best."
+baseurl: # the subpath of your site, e.g. "/blog"
+url: # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+logo: # path of site logo, e.g. "/images/logo.png"
+date_format: "%B %-d, %Y"
+read_time: # reading time estimates, e.g. true
+words_per_minute: # 200
+mathjax:
+  enable: # MathJax equations, e.g. true, false (default)
+  combo:  # "tex-svg" (default), "tex-mml-chtml", etc.: docs.mathjax.org/en/latest/web/components/combined.html
+  tags:  # "none", "ams" (default), "all"
+google_fonts:
+  - name: "Source Sans Pro"
+    weights: "400,400i,700,700i"
+  - name: "Lora"
+    weights: "400,400i,700,700i"
+google_analytics: # Google Analytics id, e.g. "UA-NNNNNNNN-N"
+disqus:
+  shortname: # Disqus shortname, e.g. "my_disqus_shortname"
+twitter:
+  username: # site's Twitter username, e.g. "mmistakes"
+
+# Liquid
+liquid:
+  error_mode: strict
 
 # Build settings
-baseurl: / # Change this to your relative path (ex: /blog/), or leave just a /
+permalink: /:categories/:title/
 markdown: kramdown
-source: .
-destination: ./_site
-permalink: /:title
-paginate: 5
-paginate_path: /page:num/
-future: true
+feed:
+  path: atom.xml
 
-# Default values
-defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
+# Pagination - https://jekyllrb.com/docs/pagination/
+# paginate: 10
+# paginate_path: /page:num/
 
-# Plugins
+# Search
+search_full_content: false # can have performance implications for large sites
+
+# Taxonomy pages
+# category_archive_path: "/categories/#"
+# tag_archive_path: "/tags/#"
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
+
 plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
   - jekyll-paginate
 
-# Custom variables
-version: "1.0.0"
+# Front Matter Defaults
+defaults:
+  # Posts defaults
+  - scope:
+      path: "_posts"
+      type: posts
+    values:
+      layout: post
+      share: true
 
-# Options
-custom_header: false
-custom_nav_footer: false
-reverse: false
+# Site Author
+author:
+  name:
+  picture:
+  email:
+  twitter:
+  links:
+    - title:
+      url:
+      icon:
 
-# Syntax highlighter
-#highlighter: rouge
-
-
-# Disqus comments
-comments: true
+# Footer Links
+footer_links:
+  - title: Feed
+    url: atom.xml
+    icon: fas fa-rss-square
