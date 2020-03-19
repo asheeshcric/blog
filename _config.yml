@@ -18,7 +18,7 @@ description: >-                        # used by seo meta and the atom feed
   reference for my future self.
 
 # Replace with your domain, e.g. 'https://username.github.io'
-url: 'protocol://domain'
+url: 'https://jashish.com.np/blog'
 
 author: Ashish Jaiswal                  # change to your full name
 
@@ -46,7 +46,7 @@ google_site_verification: google_meta_tag_verification # change to your verifica
 #--------------------------
 
 # if your site type is Project Pages site, change below value to '/projectname'
-baseurl: ''
+baseurl: '/'
 
 # Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
 timezone: America/Chicago
@@ -63,8 +63,8 @@ google_analytics:
 
 
 disqus:
-  comments: false  # boolean type, the global switch for posts comments.
-  shortname: ''    # Fill with your Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
+  comments: true  # boolean type, the global switch for posts comments.
+  shortname: 'disqus_ihxVZC4Sj6'    # Fill with your Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
 
 
 # Prefer color scheme setting, available values:
