@@ -24,9 +24,12 @@ insights.
 ### The Zen of Python, by Tim Peters
 Open your python console and type in the following command. This will show you a
 list of succinct guiding principles for Python's design. **Keep them in mind**
-> **>> import this** 
 
->
+```ruby
+>> import this
+```
+
+```
 - Beautiful is better than ugly.
 - Explicit is better than implicit.
 - Simple is better than complex.
@@ -46,7 +49,7 @@ list of succinct guiding principles for Python's design. **Keep them in mind**
 - If the implementation is hard to explain, it's a bad idea.
 - If the implementation is easy to explain, it may be a good idea.
 - Namespaces are one honking great idea -- let's do more of those!
-
+```
 
 After understanding the abstract rules and paradigms of Python, let's get into
 ways which can help you write actual standard python code.
