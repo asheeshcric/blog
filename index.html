@@ -1,19 +1,12 @@
 ---
-layout: default
-description: A collection of my thoughts and writings on latest tech and processes. Also, a so-called blog that helps me keep track of my learnings.
+layout: home
+breadcrumb:
+  -
+    label: Posts
+
+# Index page
+# v2.0
+# https://github.com/cotes2020/jekyll-theme-chirpy
+# © 2017-2019 Cotes Chung
+# MIT License
 ---
-<!-- Posts -->
-<ul id="posts">
-
-	{% for post in paginator.posts %}
-
-	  <li class="post">
-	  	<h2><a href="{% if site.baseurl == "/" %}{{ post.url }}{% else %}{{ post.url | prepend: site.baseurl }}{% endif %}">{{ post.title }}</a></h2>
-	  	<time datetime="{{ post.date | date_to_xmlschema }}" class="by-line">{{ post.date | date_to_string }}</time>
-	  	<p>{{ post.content | strip_html | truncatewords:50 }}</p>
-	  	<a href="{{ post.url }}#disqus_thread"></a>
-	  </li>
-
-    {% endfor %}
-
-</ul>

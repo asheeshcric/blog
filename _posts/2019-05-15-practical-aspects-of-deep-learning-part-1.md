@@ -104,11 +104,12 @@ efficient.
 - To select if a node should be removed or not is chosen by using a probability randomness given by **keep_prob** hyperparameter
     - e.g. If **keep_prob = 0.6**, then the chance for removing the node from that layer is 40%
 - The probability for node removal may vary for each layer
-{% highlight python linenos %}
-    >>> d = np.random.randn(activation.shape[0], activation.shape[1])
-    >>> activation = np.multiply(activation, d)
-    >>> activation /= keep_prob   # inverted dropout (to neutralize the changes of dropout in the test set)
-{% endhighlight %}
+
+```ruby
+d = np.random.randn(activation.shape[0], activation.shape[1])
+activation = np.multiply(activation, d)
+activation /= keep_prob   # inverted dropout (to neutralize the changes of dropout in the test set)
+```
 
 ### 7. Understanding dropout regularization technique
 

@@ -1,51 +1,135 @@
 ---
 layout: default
+# The posts' layout
+# v2.0
+# https://github.com/cotes2020/jekyll-theme-chirpy
+# © 2017-2019 Cotes Chung
+# MIT Licensed
 ---
-<article id="post-page">
-	<h2>{{ page.title }}</h2>		
-	<time datetime="{{ page.date | date_to_xmlschema }}" class="by-line">{{ page.date | date_to_string }}</time>
-	<div class="content">
 
-		{{ content }}
+<div class="row">
 
-		<!-- Google Adsense -->
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- Square Ad Unit -->
-        <ins class="adsbygoogle"
-              style="display:block"
-              data-ad-client="ca-pub-6362358426190245"
-              data-ad-slot="8199539244"
-              data-ad-format="auto"
-              data-full-width-responsive="true"></ins>
-        <script>
-              (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-		
-	</div>
-</article>
+  <div id="post-wrapper" class="col-12 col-lg-11 col-xl-8">
 
+    <div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4">
 
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_inline_share_toolbox_nf2c"></div>
+      <h1 data-toc-skip>{{ page.title }}</h1>
 
+      <div class="post-meta text-muted d-flex flex-column">
+        <!-- Published Date and Categoreis -->
+        <div>
+          <span class="timeago" data-toggle="tooltip" data-placement="bottom"
+           title="{{ page.date | date: site.data.date_format.tooltip }}">
+            {{ page.date | date: site.data.date_format.post }}
+            <i class="unloaded">{{ page.date | date_to_xmlschema }}</i>
+          </span>
+          {% if page.categories.size > 0 %}on{% endif %}
+          {% for category in page.categories %}
+            <a href='{{ site.baseurl }}/categories/{{ category | replace: ' ', '-' | downcase | url_encode }}/'>{{ category }}</a>
+            {%- unless forloop.last -%}, {%- endunless -%}
+          {% endfor %}
+        </div>
 
-<div id="disqus_thread"></div>
-<script>
+        <!-- page views -->
+        {% if site.google_analytics.pv %}
+        <div>
+          <span id="pv" class="pageviews"><i class="fas fa-spinner fa-spin fa-fw"></i></span> views
+        </div>
+        {% endif %}
 
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://jashish.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
+      </div> <!-- .post-meta -->
 
+      <div class="post-content">
+        {% if page.image %}
+        <img src="{{ page.image }}">
+        {% endif %}
+        <!-- Add lozad class into image tags. see: <https://github.com/ApoorvSaxena/lozad.js#usage> -->
+        {% if content contains '<img src=' %}
+          {% capture loading %}
+           {{ "/assets/img/commons/loading.png" | relative_url }}
+          {% endcapture %}
+          {% assign replacement = '<img class="lozad" src=' | append: loading | append: ' data-src=' %}
+          {{ content | replace: '<img src=', replacement }}
+        {% else %}
+          {{ content }}
+        {% endif %}
+      </div>
+
+      <div class="post-tail-wrapper text-muted">
+
+        <!-- lastmod -->
+        {% if page.seo.date_modified > page.date %}
+        <div>
+          Updated
+          <span class="timeago lastmod"
+            data-toggle="tooltip" data-placement="top"
+             title="{{ page.seo.date_modified | date: site.data.date_format.tooltip }}">
+            {{ page.seo.date_modified | date: site.data.date_format.post }}
+            <i class="unloaded">{{ page.seo.date_modified | date_to_xmlschema}}</i>
+          </span>
+        </div>
+        {% endif %}
+
+        <!-- Tags -->
+        {% if page.tags.size > 0 %}
+        <div class="pt-3">
+          {% for tag in page.tags %}
+          <a href="{{ site.baseurl }}/tags/{{ tag | replace: ' ', '-' | downcase | url_encode }}/"
+            class="post-tag no-text-decoration" >
+            {{- tag -}}
+          </a>
+          {% endfor %}
+          </div>
+        {% endif %}
+
+        <div class="post-tail-bottom
+          d-flex justify-content-between align-items-center pt-5 pb-2">
+
+          {% if site.data.right.license %}
+          <div class="license-wrapper">
+            <span class="license-text ml-1 mr-1">
+              {{ site.data.right.license.prompt }}
+              <a href="{{ site.data.right.license.link }}">
+                {{ site.data.right.license.name }}
+                {% for icon in site.data.right.license.icons %}
+                <i class="{{ icon }}"></i>
+                {% endfor %}
+              </a>
+            </span>
+          </div>
+          {% endif %}
+
+          {% include post-sharing.html %}
+
+        </div><!-- .post-tail-bottom -->
+
+      </div><!-- div.post-tail -->
+
+    </div> <!-- .post -->
+
+  </div> <!-- #post-wrapper -->
+
+  {% include panel.html %}
+
+</div> <!-- .row -->
+
+<div class="row">
+  <div id="post-extend-wrapper" class="col-12 col-lg-11 col-xl-8">
+
+    <div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4">
+
+      {% include post-nav.html %}
+
+      {% if site.disqus.comments and page.comments %}
+        {% include disqus.html %}
+      {% endif %}
+
+      {% include related-posts.html %}
+
+    </div> <!-- .pl-1 pr-1 -->
+
+  </div> <!-- #post-extend-wrapper -->
+
+</div> <!-- .row -->
+
+{% include lozad.html %}

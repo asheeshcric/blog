@@ -64,17 +64,23 @@ depending on the approach we take and the type of data we have on hand.
             
         2. ___Covariance Matrix___
             - Compute the covariance matrix for the dataset
-            > Matrix (Covariance) = $$ \begin{bmatrix}Var[X_2] & Cov[X_1, X_2]\\Cov[X_2, X_1] & Var[X_2]\end{bmatrix} $$
+            ```
+            Matrix (Covariance) = $$ \begin{bmatrix}Var[X_2] & Cov[X_1, X_2]\\Cov[X_2, X_1] & Var[X_2]\end{bmatrix} $$
+            ```
 
         3. ___Eigenvalues and Eigenvectors calculation___
             - Calculate the eigen values and vectors for the above calculated
             covariance matrix
             - **$$\lambda$$** can be defined as the eigen value of a matrix **A** if
             if satisfies the following characteristic equation
-                > det($$\lambda$$I - A) = 0
+                ```
+                det($$\lambda$$I - A) = 0
+                ```
             - Also, for each eigen value $$\lambda$$, there exists a corresponding eigen
             vector **v** such that
-                > ($$\lambda$$I - A)v = 0
+                ```
+                ($$\lambda$$I - A)v = 0
+                ```
                 
         4. ___Forming a feature vector___
             - Order the obtained eigenvalues from largest to smallest so that it
@@ -85,11 +91,15 @@ depending on the approach we take and the type of data we have on hand.
             and ignore the rest.
             - Now, we form a feature vector which is a matrix of the **eigenvectors** as shown
             below
-                > Feature Vector = ($$eig_1, eig_2, eig_3,  ... $$)
+                ```
+                Feature Vector = ($$eig_1, eig_2, eig_3,  ... $$)
+                ```
                 
         5. ___Forming Principal Components___
             - We now form our principal components using the above calculated figures
-                > NewData = $$ FeatureVector^T * ScaledData^T$$
+                ```
+                NewData = $$ FeatureVector^T * ScaledData^T$$
+                ```
                 
             - So, 
                 - *NewData* is the matrix consisting of the principal components

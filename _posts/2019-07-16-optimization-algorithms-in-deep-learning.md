@@ -49,7 +49,9 @@ Here are the main differences among different types of gradient descents.
 - Used on basically any data that is in sequence
 - It is also referred as **smoothing** of the data (or timeseries)
 
-> $$v_{t}$$ = $$\beta$$$$v_{t-1}$$ + (1 - $$\beta$$)$$\theta_{t}$$
+```
+$$v_{t}$$ = $$\beta$$$$v_{t-1}$$ + (1 - $$\beta$$)$$\theta_{t}$$
+```
 
 - Generally, we take $$\beta$$ = 0.9 for practical consideration
 ![](https://i.ibb.co/7VmTvRh/Screenshot-from-2019-07-16-10-15-20.png)
@@ -59,7 +61,9 @@ Here are the main differences among different types of gradient descents.
 - In exponentially weighted averages, when the initial value $$v_{0}$$ = 0, then it can create an unwanted bias making 
 the initial averages to be much lower than the actual. So, we use the following formula to update the value of $$v_{t}$$
 
-> $$v_{t}$$ = $$v_{t}$$ / (1 - $$\beta^{t}$$)
+```
+$$v_{t}$$ = $$v_{t}$$ / (1 - $$\beta^{t}$$)
+```
 
 - This is required for bias correction and not letting the initial values be affected by a fixed bias towards 
 **zero** or **origin**
@@ -73,12 +77,20 @@ in each update). This make the gradient descent to oscillate a lot while moving 
 to update the weights instead
 - This helps in reducing the oscillations during G.D. and makes the convergence faster
 
-> $$v_{dw}$$ = $$\beta$$ $$v_{dw}$$ + (1 - $$\beta$$) dw  
-> $$v_{db}$$ = $$\beta$$ $$v_{db}$$ + (1 - $$\beta$$) db  
+```
+$$v_{dw}$$ = $$\beta$$ $$v_{dw}$$ + (1 - $$\beta$$) dw
+```  
+```
+$$v_{db}$$ = $$\beta$$ $$v_{db}$$ + (1 - $$\beta$$) db  
+```
 
-> w = w - $$\alpha$$ $$v_{dw}$$  
-> b = b - $$\alpha$$ $$v_{db}$$  
-    
+```
+w = w - $$\alpha$$ $$v_{dw}$$  
+```
+```
+b = b - $$\alpha$$ $$v_{db}$$  
+```
+
 - So, here "$$\beta$$" is a new hyperparameter involved which basically carries out exponentially weighted averages on each update making the convergence faster
 - Generally, the practically considered value of $$\beta$$ is ~ 0.9
 - Hence, this method is basically taking *"exponentially weighted moving averages"* method and merging
@@ -92,12 +104,20 @@ it to the *"mini-batch gradient descent"* algorithm
     
 - In this case, the exponentially weighted moving averages are calculated differently as shown below
 
-> $$s_{dw}$$ = $$\beta$$ $$s_{dw}$$ + (1 - $$\beta$$) $$dw^{2}$$  
-> $$s_{db}$$ = $$\beta$$ $$s_{db}$$ + (1 - $$\beta$$) $$db^{2}$$  
+```
+$$s_{dw}$$ = $$\beta$$ $$s_{dw}$$ + (1 - $$\beta$$) $$dw^{2}$$  
+```
+```
+$$s_{db}$$ = $$\beta$$ $$s_{db}$$ + (1 - $$\beta$$) $$db^{2}$$  
+```
 
-> w = w - $$\alpha$$ * dw / $$\sqrt{s_{dw} + \epsilon}$$  
-> b = b - $$\alpha$$ * db / $$\sqrt{s_{db} + \epsilon}$$  
-    
+```
+w = w - $$\alpha$$ * dw / $$\sqrt{s_{dw} + \epsilon}$$  
+```
+```
+b = b - $$\alpha$$ * db / $$\sqrt{s_{db} + \epsilon}$$  
+```
+
 - RMSprop and Momentum algorithms both decrease the vertical oscillations and increase horizontal speed, making the descent converge faster for a given cost function
 
 
@@ -107,26 +127,46 @@ it to the *"mini-batch gradient descent"* algorithm
 - The term **Adam** is derived from **Adaptive Moment Estimation**
 - First, it calculates gradients using the momentum method:
 
-> $$v_{dw}$$ = $$\beta_{1}$$ $$v_{dw}$$ + (1 - $$\beta_{1}$$)dw  
-> $$v_{db}$$ = $$\beta_{1}$$ $$v_{db}$$ + (1 - $$\beta_{1}$$)db
+```
+$$v_{dw}$$ = $$\beta_{1}$$ $$v_{dw}$$ + (1 - $$\beta_{1}$$)dw  
+```
+```
+$$v_{db}$$ = $$\beta_{1}$$ $$v_{db}$$ + (1 - $$\beta_{1}$$)db
+```
 
-> $$v_{dw_{c}}$$ = $$v_{dw}$$ / (1 - $$\beta_{1}^{t}$$),  <-- *where  $$v_{dw_{c}}$$ is the corrected form of $$v_{dw}$$*  
-> $$v_{db_{c}}$$ = $$v_{db}$$ / (1 - $$\beta_{1}^{t}$$),  <-- *where  $$v_{db_{c}}$$ is the corrected form of $$v_{db}$$*
+```
+$$v_{dw_{c}}$$ = $$v_{dw}$$ / (1 - $$\beta_{1}^{t}$$),  <-- *where  $$v_{dw_{c}}$$ is the corrected form of $$v_{dw}$$*
+```
+```  
+$$v_{db_{c}}$$ = $$v_{db}$$ / (1 - $$\beta_{1}^{t}$$),  <-- *where  $$v_{db_{c}}$$ is the corrected form of $$v_{db}$$*
+```
     
 - Then we have the gradients using the RMSprop method:
 
-> $$s_{dw}$$ = $$\beta_{2}$$ $$s_{dw}$$ + (1 - $$\beta_{2}$$) $$dw^{2}$$  
-> $$s_{db}$$ = $$\beta_{2}$$ $$s_{db}$$ + (1 - $$\beta_{2}$$) $$db^{2}$$
+```
+$$s_{dw}$$ = $$\beta_{2}$$ $$s_{dw}$$ + (1 - $$\beta_{2}$$) $$dw^{2}$$  
+```
+```
+$$s_{db}$$ = $$\beta_{2}$$ $$s_{db}$$ + (1 - $$\beta_{2}$$) $$db^{2}$$
+```
 
-> $$s_{dw_{c}}$$ = $$s_{dw}$$ / (1 - $$\beta_{2}^{t}$$),  <-- *where  $$s_{dw_{c}}$$ is the corrected form of $$s_{dw}$$*  
-> $$s_{db_{c}}$$ = $$s_{db}$$ / (1 - $$\beta_{2}^{t}$$),  <-- *where  $$s_{db_{c}}$$ is the corrected form of $$s_{db}$$*
+```
+$$s_{dw_{c}}$$ = $$s_{dw}$$ / (1 - $$\beta_{2}^{t}$$),  <-- *where  $$s_{dw_{c}}$$ is the corrected form of $$s_{dw}$$*
+```
+```  
+$$s_{db_{c}}$$ = $$s_{db}$$ / (1 - $$\beta_{2}^{t}$$),  <-- *where  $$s_{db_{c}}$$ is the corrected form of $$s_{db}$$*
+```
     
     
 - Finally the weights are updated as follows:
 
-> w = w - $$\alpha$$ *  $$v_{dw_{c}}$$ / $$\sqrt{s_{dw_{c}} + \epsilon}$$  
-> b = b - $$\alpha$$ *  $$v_{db_{c}}$$ / $$\sqrt{s_{db_{c}} + \epsilon}$$
-    
+```
+w = w - $$\alpha$$ *  $$v_{dw_{c}}$$ / $$\sqrt{s_{dw_{c}} + \epsilon}$$  
+```
+```
+b = b - $$\alpha$$ *  $$v_{db_{c}}$$ / $$\sqrt{s_{db_{c}} + \epsilon}$$
+```
+
 - Here, the hyperparameters are $$\alpha$$, $$\beta_{1}$$ = 0.9, $$\beta_{2}$$ = 0.999, and $$\epsilon$$ = $$10^{-8}$$ with practical use-case values
 
 
@@ -136,17 +176,23 @@ it to the *"mini-batch gradient descent"* algorithm
 - So, there is a technique to lower down the learning rate as it approaches the minimum so that it converges faster
 - The formula for a **decaying learning rate** is given below:
 
-> $$\alpha$$ = $$\frac{\alpha_{o}}{1\; + \;decay\_rate\; *  \;epoch\_num}$$
+```
+$$\alpha$$ = $$\frac{\alpha_{o}}{1\; + \;decay\_rate\; *  \;epoch\_num}$$
+```
 
 - Here, $$\alpha_{0}$$ is the initial learning rate
 
 #### Other learning rate formulae that can be used
 
-> $$\alpha$$ = $$\alpha_{o}$$ * $$0.95^{\:epoch\_num}$$
+```
+$$\alpha$$ = $$\alpha_{o}$$ * $$0.95^{\:epoch\_num}$$
+```
 
 - Discrete Staircase
 
-> $$\alpha$$ = $$\frac{k\: *\: \alpha_{o}}{\sqrt{epoch\_num}}\;\;$$ or $$\;\frac{k * \:\alpha_{o}}{\sqrt{t}}$$
+```
+$$\alpha$$ = $$\frac{k\: *\: \alpha_{o}}{\sqrt{epoch\_num}}\;\;$$ or $$\;\frac{k * \:\alpha_{o}}{\sqrt{t}}$$
+```
 
 - One option is to manually decay the learning rate during the training process which is not feasible most of the times
 

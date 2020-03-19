@@ -14,21 +14,22 @@ for the dataset, and the rest will be the features.
 
 Now, open your jupyter notebook or any python IDE/Editor and import numpy and pandas.
 
-{% highlight python linenos %}
-    import numpy as np
-    import pandas as pd
-{% endhighlight %}
+```ruby
+import numpy as np
+import pandas as pd
+```
 
 Use pandas to read the downloaded dataset. Make sure you put the dataset in an appropriate location
 for the import
 
-{% highlight python linenos %}
-    df_raw = pd.read_csv('path/to/ktm_temps.csv',
-                          parse_dates=['DATE'])
-    # Checkout the dataset
-    print(df_raw.head())
-    print(df_raw.shape)
-{% endhighlight %}
+```ruby
+df_raw = pd.read_csv('path/to/ktm_temps.csv',
+                        parse_dates=['DATE'])
+# Checkout the dataset
+print(df_raw.head())
+print(df_raw.shape)
+```
+
 ![](https://i.ibb.co/MgmZrB5/Screenshot-from-2019-03-16-21-03-57.png)
 
 If you look closely on the csv file, you can see a lot of values from the columns are missing.
@@ -36,9 +37,9 @@ So, we need to do something for the missing values. There are certainly some goo
 with missing values when training for RandomForest, but for now we will just replace the values with
 the mean of their column. For that, just type in the following command.
 
-{% highlight python linenos %}
+```ruby
     df_raw.fillna(df_raw.mean(), inplace=True)
-{% endhighlight %}
+```
 
 Now checkout the dataframe, you will see that all **NaN** values are gone for good.
 
@@ -52,49 +53,49 @@ looking at the date, we can look for the day of the week or the month of the yea
 extracted features from one variable can make our model perform better. So, this is exactly what we
 are going to do in the next step.
 
-{% highlight python linenos %}
-    # Take the 'DATE' column
-    date_column = df_raw.iloc[:, 0]
-    
-    # Create a new dataframe with additional features
-    features = pd.DataFrame({
-        'year': date_column.dt.year,
-        'month': date_column.dt.month,
-        'dayofyear': date_column.dt.dayofyear,
-        'weekofyear': date_column.dt.weekofyear,
-        'dayofweek': date_column.dt.dayofweek,
-    })
-    
-    # Add the original two features to the new dataframe
-    features['TAVG'] = df_raw['TAVG']
-    features['TMIN'] = df_raw['TMIN']
-    
-    # Check out the newly formed dataset
-    features.head()
-{% endhighlight %}
+```ruby
+# Take the 'DATE' column
+date_column = df_raw.iloc[:, 0]
+
+# Create a new dataframe with additional features
+features = pd.DataFrame({
+    'year': date_column.dt.year,
+    'month': date_column.dt.month,
+    'dayofyear': date_column.dt.dayofyear,
+    'weekofyear': date_column.dt.weekofyear,
+    'dayofweek': date_column.dt.dayofweek,
+})
+
+# Add the original two features to the new dataframe
+features['TAVG'] = df_raw['TAVG']
+features['TMIN'] = df_raw['TMIN']
+
+# Check out the newly formed dataset
+features.head()
+```
 ![](https://i.ibb.co/j5R7tNS/Screenshot-from-2019-03-16-21-16-49.png)
 
 Since we decided the max. temperature of the day to be our label, we need to extract the labels from
 the dataset. We also convert both **features** and **labels** into numpy arrays for further processing.
 
-{% highlight python linenos %}
-    labels = df_raw['TMAX']
-    labels = np.array(labels)
-    features = np.array(features)
-{% endhighlight %}
+```ruby
+labels = df_raw['TMAX']
+labels = np.array(labels)
+features = np.array(features)
+```
 
 Now, we have our dataset clean and ready. It is now time to split the dataset into training and
 test sets. For this we will use an inbuilt method from sklearn called *`train_test_split`*
 
-{% highlight python linenos %}
-    from sklearn.model_selection import train_test_split
+```ruby
+from sklearn.model_selection import train_test_split
 
-    # Split the data into training and testing sets
-    train_features, test_features, train_labels, test_labels = train_test_split(features,
-                                                                                labels,
-                                                                                test_size=0.3,
-                                                                                random_state=42)
-{% endhighlight %}
+# Split the data into training and testing sets
+train_features, test_features, train_labels, test_labels = train_test_split(features,
+                                                                            labels,
+                                                                            test_size=0.3,
+                                                                            random_state=42)
+```
 
 Don't forget to checkout the shapes of and behavior of the splitted sets.
 
@@ -105,41 +106,41 @@ model. For this, we will import the model from `sklearn.ensemble` and fit the mo
 training set.
 
 
-{% highlight python linenos %}
-    from sklearn.ensemble import RandomForestRegressor
-    
-    # Instantiate the model
-    # n_estimators refers to the number of crappy trees for the forest
-    rf = RandomForestRegressor(n_estimators=400,
-                               random_state=42)
-    
-    # Train the model
-    rf.fit(train_features, train_labels)
-{% endhighlight %}
+```ruby
+from sklearn.ensemble import RandomForestRegressor
+
+# Instantiate the model
+# n_estimators refers to the number of crappy trees for the forest
+rf = RandomForestRegressor(n_estimators=400,
+                            random_state=42)
+
+# Train the model
+rf.fit(train_features, train_labels)
+```
 
 Once the model is trained successfully, it is now time to evaluate our model and see how it performs
 on our test set.
 
-{% highlight python linenos %}
-    predictions = rf.predict(test_features)
-    
-    # Calculate the absolute errors
-    errors = abs(predictions - test_labels)
-    
-    # Mean abs error
-    mean_abs_error = round(np.mean(errors), 2)
-    print(mean_abs_error)
-{% endhighlight %}
+```ruby
+predictions = rf.predict(test_features)
+
+# Calculate the absolute errors
+errors = abs(predictions - test_labels)
+
+# Mean abs error
+mean_abs_error = round(np.mean(errors), 2)
+print(mean_abs_error)
+```
 
 
-{% highlight python linenos %}
-    # Mean Absolute Percentage Error (MAPE)
-    mape = 100 * (errors / test_labels)
-    
-    # Accuracy
-    accuracy = 100 - np.mean(mape)
-    print(accuracy)
-{% endhighlight %}
+```ruby
+# Mean Absolute Percentage Error (MAPE)
+mape = 100 * (errors / test_labels)
+
+# Accuracy
+accuracy = 100 - np.mean(mape)
+print(accuracy)
+```
 
 
 In my case, the accuracy obtained for the dataset was around 96%. We can see that RandomForest performed
