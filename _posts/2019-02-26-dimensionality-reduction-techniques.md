@@ -1,5 +1,8 @@
 ---
 title: Dimensionality Reduction - Machine Learning
+date: 2019-02-26 07:23:00 +0515
+categories: [Demo]
+tags: [best_practice]
 description: In Machine Learning or Statistics, dimesionality reduction is the process of reducing the number of random variables under consideration by obtaining a set of principal variables.
 ---
 
