@@ -1,3 +1,14 @@
+---
+title: Understanding PyTorch Tensors
+date: 2019-10-31 11:23:00 +0515
+categories: [Tutorial]
+tags: [pytorch python deep_learning]
+description: Understanding how tensor operations are carried out in PyTorch with examples.
+---
+
+This post is just intended to present example codes to see how tensors are operated and manipulated in
+PyTorch. There are no explanations or descriptions for any of the code. This post is just for reference purposes and will soon be removed.
+
 ```python
 import torch
 ```

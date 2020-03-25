@@ -7,9 +7,9 @@
 
 
 license:
-  link: "https://creativecommons.org/licenses/by/4.0/"
-  prompt: This post is licensed under
-  name: CC BY 4.0
+  link: "https://jashish.com.np"
+  prompt: This post is written by
+  name: Ashish Jaiswal
   icons:
     - "fab fa-creative-commons"
     - "fab fa-creative-commons-by"
