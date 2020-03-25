@@ -6,7 +6,7 @@ tags: [best_practice python]
 description: Who decides if a code written in Python is actually pythonic or not? These are some questions which I will try to discuss in this post so that you can have some insights.
 ---
 
-![Pythonic Code](/blog/assets/img/posts/pythonic-code.jpg "Pythonic Code")
+![Pythonic Code]({% assets_url %}/img/posts/pythonic-code.jpg "Pythonic Code")
 Ever since I shifted from C to Python, my life has been terribly easy as Python
 is such a neat and powerful language. But I have had my problems in the beginning.
 Although I started writing code in Python, the structure was still vastly influenced
