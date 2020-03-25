@@ -19,7 +19,7 @@ description: >-                        # used by seo meta and the atom feed
 
 # Replace with your domain, e.g. 'https://username.github.io'
 url: 'https://jashish.com.np/blog'
-assets_url: '/assets'
+assets_url: '/blog/assets'
 
 author: Ashish Jaiswal                  # change to your full name
 
