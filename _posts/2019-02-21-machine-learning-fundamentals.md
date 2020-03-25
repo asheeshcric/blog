@@ -20,7 +20,7 @@ fundamental concepts in machine learning.
 ### 2. Confusion Matrix
 - Helps in summarizing the performance of the testing data on our trained model
 - **Rows** in the confusion matrix correspond to the predicted data from the model and **Columns** correspond to the actual output of the data
-![Confusion Matrix](/assets/img/posts/confusion-matrix.png)
+![Confusion Matrix](/blog/assets/img/posts/confusion-matrix.png)
 
 
 ### 3. Sensitivity & Specificity

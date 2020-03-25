@@ -261,7 +261,7 @@ plt.plot(x.numpy(), y.numpy())
 
 
 
-![png](/assets/img/posts/pytorch_tensors_plot.png)
+![png](/blog/assets/img/posts/pytorch_tensors_plot.png)
 
 
 ### Derivatives in PyTorch
@@ -304,7 +304,7 @@ plt.legend()
 
 
 
-![png](/assets/img/posts/pytorch_tensors_plot_2.png)
+![png](/blog/assets/img/posts/pytorch_tensors_plot_2.png)
 
 
 ![](https://i.ibb.co/9wsW4wk/Screenshot-from-2019-11-01-11-58-09.png)
