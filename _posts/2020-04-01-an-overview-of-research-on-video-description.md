@@ -1,16 +1,17 @@
 ---
-title: A Beginner's Guide to Understanding Video Description
-date: 2020-03-31 16:51:32 -0500
-categories: [Tutorial]
-tags: [deep_learning vision nlp]
+title: An Overview of research on Video Description
+date: 2020-04-01 22:35:32 -0500
+categories: [Illustration]
+tags: [machine_learning]
 description: This post discusses about different methods, surveys, and metrics that have been introduced in the field of video description. Video description is one of the popular fields in today's research that involves understanding and detection of occurrences of many entities in a video.
 ---
 
-I am writing this at the time when it has been more than two weeks since the United States (including most parts of the
-world) have gone into lockdown and all the colleges and work places have been moved to be operating remotely. This is the
-reason I've had some spare time to read a few research papers covering topics like video analysis, self-supervised learning,
-and human-action recognition. I would like to grab this opportunity to write a comprehensive article on things that I learned
-about video description and its current state of the art methodologies, datasets, and results.
+The following post is inspired from the paper [Video Description: A Survey of Methods, Datasets and Evaluation Metrics](https://arxiv.org/abs/1806.00186).
+I have tried to summarize the research that has been undergone in the field of visual recognition and video description
+in this writing. This post discusses about the methods that have been used since the past by categorizing them into three
+special groups so that it is easier to understand the progress of classical methods in comparison to modern deep learning
+methods.
+
 
 Video description is one of the popular fields in today's research that involves understanding and detection of occurrences
 of many entities in a video. By "entities", we mean things like *background scene*, *humans*, *objects*, *human actions*,
@@ -155,68 +156,110 @@ stage, the model tries to capture relevant and useful information from the input
 the extracted relevant features that represent the input are used in predicting the description of the input video, i.e
 in generating sequences of words and sentences. These architectures are individually described below.
 
-- **CNN-RNN Video Description**:
-    - As it is already clear by the name, in this architecture, convolutional networks are used for visual encoding. CNN
-    is still by far the most popular network structure used for visual encoding. The encoding process can be broadly
-    categorized into *fixed-size* and *variable-size* video encoding.
-    
-    - [Donahue et al.](https://arxiv.org/abs/1411.4389) in 2014 were the first to use deep neural networks to solve the problem
-    of video captioning. They proposed three differenct architectures to solve this problem. The first one, LSTM
-    encoder-decoder with CRF max where they replaced the [SMT](http://ivan-titov.org/papers/iccv13.pdf) module with
-    a stacked LSTM comprising two layers for encoding and decoding. Other variants of this architecture, LSTM decoder with
-    CRF max and LSTM decoder with CRF probabilities also performed better than the SMT based approach. But they were still
-    not trainable in an end-to-end fashion.
-    
-    - [Venugopalan et al.](https://arxiv.org/abs/1412.4729) presented the first end-to-end trainable network architecture
-    for generating natural language description of videos. Their model is able to simultaneously learn the semantic as well
-    as grammatical structure of the associated language and also reported results on open domain YouTube Clips. The model was
-    built by directly connecting an LSTM to the output of the CNN. This model has been the base of many recent models in
-    sequence learning. As usual, the CNN layers extract feature vectors which is input to the first LSTM layer, where the
-    hidden state of the first LSTM becomes input to the second LSTM unit for caption generation. This end-to-end model
-    performed better than the previous video description systems at the time and was effectively generating sentences
-    without any templates. However, as a result of simple averaging, valuable temporal information of the video such as
-    the order of appearances of any two objects are lost. Therefore, this approach is only capable of generating captions
-    for short clips with a single main event in the clip.
-    
-    - With the success of [C3D](https://arxiv.org/abs/1412.0767v1) in capturing spatio-temporal action dynamics in videos,
-    [Li et al.](https://arxiv.org/abs/1502.08029) proposed a novel 3D-CNN to model the spatio-temporal information in
-    videos. The 3D-CNN part of their model is based on [GoogLeNet](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/43022.pdf)
-    and pre-trained on an activity recognition dataset. The speciality of their model is that it was able to capture local
-    fine motion information between consecutive frames. This local information is subsequently summarized and preserved
-    through higher-level representations by modeling a video as a 3D spatio-temporal cuboid with concatenation of [HoG,
-    HoF](https://link.springer.com/chapter/10.1007/11744047_33), [MbH](https://www.irisa.fr/vista/Papers/2009_bmvc_wang.pdf).
-    These transformations not only help capture local motion features but also reduce the computation of the subsequent
-    3D CNN. They also introduced temporal attention mechanisms in RNN which improved the results.
-    
-    - Recently, [GRU-EVE](https://arxiv.org/pdf/1902.10322.pdf) was proposed for video captioning which effectively uses
-    a standard GRU (Gated Recurrent Unit) for language modeling but enriched with Short Fourier Transform (SFT) on
-    2D/3D-CNN features in a hierarchical manner to encapsulate the spatio-temporal video dynamics. They further enrich
-    the visual features with high level semantics of the detected objects and actions in the video as extra signal to the
-    network. Apparently, the enriched features obtained by applying SFT on 2D-CNN features alone, outperformed C3D features.
-    
-    - When it comes to *variable-size visual representation* (unlike above methods), the models are able to directly map
-    input videos comprising different number of frames to variable length words or sentences (outputs) by successfully
-    modeling various complex temporal dynamics. [Venugopalan et al.](https://arxiv.org/abs/1505.00487) in 2015, again proposed
-    an architecture using sequence-to-sequence approach for video captioning with a two-layered LSTM framework.
-    
-    - [Yu et al.](https://arxiv.org/abs/1510.07712) introduced a hierarchical recurrent neural network (h-RNN) that
-    applies [attention mechanisms](https://papers.nips.cc/paper/7181-attention-is-all-you-need.pdf) on both the temporal
-    and spatial aspects. They focused on the sentence decoder and introduced a hierarchical framework that comprises of
-    a sentence generator and on top of that a paragraph generator.
-    
-    
-    - **Popular Video Features Extraction Methods and Action Recognition**
+### CNN-RNN Video Description
+As it is already clear by the name, in this architecture, convolutional networks are used for visual encoding. CNN
+is still by far the most popular network structure used for visual encoding. The encoding process can be broadly
+categorized into *fixed-size* and *variable-size* video encoding.
 
-        The following are some methods that employ extraction of enriched features from videos and can be used as base or
-        pre-trained models for video description encoders.
-        - Long-term Recurrent Convolutional Networks for Visual Recogntion and Description [(LRCN)](https://arxiv.org/abs/1411.4389)
-        - Learning Spatiotemporal Features with 3D Convolutional Networks [(C3D)](https://arxiv.org/pdf/1412.0767.pdf)
-        - Describing Videos by Exploiting Temporal Structure [(Conv3D & Attention)](https://arxiv.org/abs/1502.08029)
-        - [TwoStreamFusion](https://arxiv.org/abs/1604.06573)
-        - Temporal Segment Networks [(TSN)](https://arxiv.org/abs/1608.00859)
-        - [ActionVlad](https://arxiv.org/pdf/1704.02895.pdf): Learning spatio-temporal aggregation for action classification
-        - [Hidden Two-Stream](https://arxiv.org/abs/1704.00389) Convolutional Networks for Action Recognition
-        - Quo Vadis, Action Recognition? A New Model and the Kinetics Dataset [(I3D)](https://arxiv.org/abs/1705.07750)
-        - Temporal 3D ConvNets [(T3D)](https://arxiv.org/abs/1711.08200)
+- [Donahue et al.](https://arxiv.org/abs/1411.4389) in 2014 were the first to use deep neural networks to solve the problem
+of video captioning. They proposed three differenct architectures to solve this problem. The first one, LSTM
+encoder-decoder with CRF max where they replaced the [SMT](http://ivan-titov.org/papers/iccv13.pdf) module with
+a stacked LSTM comprising two layers for encoding and decoding. Other variants of this architecture, LSTM decoder with
+CRF max and LSTM decoder with CRF probabilities also performed better than the SMT based approach. But they were still
+not trainable in an end-to-end fashion.
+
+- [Venugopalan et al.](https://arxiv.org/abs/1412.4729) presented the first end-to-end trainable network architecture
+for generating natural language description of videos. Their model is able to simultaneously learn the semantic as well
+as grammatical structure of the associated language and also reported results on open domain YouTube Clips. The model was
+built by directly connecting an LSTM to the output of the CNN. This model has been the base of many recent models in
+sequence learning. As usual, the CNN layers extract feature vectors which is input to the first LSTM layer, where the
+hidden state of the first LSTM becomes input to the second LSTM unit for caption generation. This end-to-end model
+performed better than the previous video description systems at the time and was effectively generating sentences
+without any templates. However, as a result of simple averaging, valuable temporal information of the video such as
+the order of appearances of any two objects are lost. Therefore, this approach is only capable of generating captions
+for short clips with a single main event in the clip.
+
+- With the success of [C3D](https://arxiv.org/abs/1412.0767v1) in capturing spatio-temporal action dynamics in videos,
+[Li et al.](https://arxiv.org/abs/1502.08029) proposed a novel 3D-CNN to model the spatio-temporal information in
+videos. The 3D-CNN part of their model is based on [GoogLeNet](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/43022.pdf)
+and pre-trained on an activity recognition dataset. The speciality of their model is that it was able to capture local
+fine motion information between consecutive frames. This local information is subsequently summarized and preserved
+through higher-level representations by modeling a video as a 3D spatio-temporal cuboid with concatenation of [HoG,
+HoF](https://link.springer.com/chapter/10.1007/11744047_33), [MbH](https://www.irisa.fr/vista/Papers/2009_bmvc_wang.pdf).
+These transformations not only help capture local motion features but also reduce the computation of the subsequent
+3D CNN. They also introduced temporal attention mechanisms in RNN which improved the results.
+
+- Recently, [GRU-EVE](https://arxiv.org/pdf/1902.10322.pdf) was proposed for video captioning which effectively uses
+a standard GRU (Gated Recurrent Unit) for language modeling but enriched with Short Fourier Transform (SFT) on
+2D/3D-CNN features in a hierarchical manner to encapsulate the spatio-temporal video dynamics. They further enrich
+the visual features with high level semantics of the detected objects and actions in the video as extra signal to the
+network. Apparently, the enriched features obtained by applying SFT on 2D-CNN features alone, outperformed C3D features.
+
+- When it comes to *variable-size visual representation* (unlike above methods), the models are able to directly map
+input videos comprising different number of frames to variable length words or sentences (outputs) by successfully
+modeling various complex temporal dynamics. [Venugopalan et al.](https://arxiv.org/abs/1505.00487) in 2015, again proposed
+an architecture using sequence-to-sequence approach for video captioning with a two-layered LSTM framework.
+
+- [Yu et al.](https://arxiv.org/abs/1510.07712) introduced a hierarchical recurrent neural network (h-RNN) that
+applies [attention mechanisms](https://papers.nips.cc/paper/7181-attention-is-all-you-need.pdf) on both the temporal
+and spatial aspects. They focused on the sentence decoder and introduced a hierarchical framework that comprises of
+a sentence generator and on top of that a paragraph generator.
+
+
+- **Popular Video Features Extraction Methods and Action Recognition**
+
+    The following are some methods that employ extraction of enriched features from videos and can be used as base or
+    pre-trained models for video description encoders.
+    - Long-term Recurrent Convolutional Networks for Visual Recogntion and Description [(LRCN)](https://arxiv.org/abs/1411.4389)
+    - Learning Spatiotemporal Features with 3D Convolutional Networks [(C3D)](https://arxiv.org/pdf/1412.0767.pdf)
+    - Describing Videos by Exploiting Temporal Structure [(Conv3D & Attention)](https://arxiv.org/abs/1502.08029)
+    - [TwoStreamFusion](https://arxiv.org/abs/1604.06573)
+    - Temporal Segment Networks [(TSN)](https://arxiv.org/abs/1608.00859)
+    - [ActionVlad](https://arxiv.org/pdf/1704.02895.pdf): Learning spatio-temporal aggregation for action classification
+    - [Hidden Two-Stream](https://arxiv.org/abs/1704.00389) Convolutional Networks for Action Recognition
+    - Quo Vadis, Action Recognition? A New Model and the Kinetics Dataset [(I3D)](https://arxiv.org/abs/1705.07750)
+    - Temporal 3D ConvNets [(T3D)](https://arxiv.org/abs/1711.08200)
     
     
+### RNN-RNN Video Description
+Unlike CNN-RNN architecture, this approach is not quite popular, but people still use it in some cases. Here, RNNs are
+used to encode the visual information.
+
+- [Srivastava et al.](https://arxiv.org/abs/1502.04681) used one LSTM layer to extract features from video frames
+(i.e. encoding) and then passed the encoded feature vector through another LSTM for decoding. They also extented their
+model to predict future sentences from past frames. They adopted a machine translation model for visual recognition but
+could not achieve significant improvement in accuracy.
+
+- [Yu et al.](https://arxiv.org/abs/1510.07712) also proposed a similar approach using two RNN structures for the video
+description task. They used GRU units for sentence generation with a hierarchical decoder structure. Another paragraph
+generator unit is then fed input (from the decoder) to model the time dependencies between the output sentences while
+focusing on linguistic aspects. However, their model is inefficient for videos involving fine-grained activities and small
+interactive objects.
+
+
+### Deep Reinforcement Learning Models
+Deep Reinforcement Learning (DRL) has out-performed humans in many real-world games like Chess and Go. In DRL, artificial
+intelligent agents learn from the environment through trial and error and adjust learning policies purely from environmental
+rewards or punishments. These approaches have been popularized by [Google Deep Mind](https://deepmind.com/) since 2013.
+Still due to the absence of a straight forward cost function, learning mechanisms in reinforcement learning are
+considerably difficult to devise as compared to traditional supervised methods. There are two main challenges with this
+approach unlike other problems:
+1. The model does not have full access to the function being optimized. It has to query the function through interaction.
+2. The interaction with the environment is state based where the present input depends on previous actions. Hence, the
+choice of reinforcement learning algorithms depend on the scope of the problem in hand.
+
+- [Xwang et al.](http://openaccess.thecvf.com/content_cvpr_2018/papers/Wang_Video_Captioning_via_CVPR_2018_paper.pdf) proposed a fully-differentiable neural network architecture using reinforcement learning which follows
+a general encoder-decoder framework. The encoder uses ResNet-152 as the base model to capture the video frame features.
+The video features are processed through two stage encoder i.e. low-level LSTM followed by a high-level LSTM. The decoder
+stage employed Hierarchical Reinforcement Learning [(HRL)](http://openaccess.thecvf.com/content_cvpr_2018/papers/Wang_Video_Captioning_via_CVPR_2018_paper.pdf)
+to generate the word by word natural language descriptions.
+
+- Similarly, in 2018, [Chen et al.](https://arxiv.org/abs/1803.01457) introduced a RL based model selecting *key
+informative frames* to represent a complete video, in an attempt to minimize computational complexity and unnecessary
+noise. The key frames (a compact subset of 6-8 frames) are selected such that they maximize visual diversity and minimize
+the textual discrepancy. The method also did not use motion features for encoding, a design trade-off between speed and
+accuracy.
+
+DRL based methods are gaining popularity and have shown comparable results in video description. Since their learning
+methodology is unlike other supervised methods, they are less likely to suffer from scarcity of labelled training data,
+computational constraints, and overfitting problems. We can expect these methods to flourish in the near future.
