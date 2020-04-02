@@ -205,6 +205,10 @@ applies [attention mechanisms](https://papers.nips.cc/paper/7181-attention-is-al
 and spatial aspects. They focused on the sentence decoder and introduced a hierarchical framework that comprises of
 a sentence generator and on top of that a paragraph generator.
 
+![CNN-RNN Basic Architecture]({{ site.assets_url }}/img/posts/video_description_deep_learning.png "CNN-RNN Basic Architecture")
+The figure above represents the basic blocks of commonly-used CNN-RNN architecture. The CNN block is responsible for
+extracting enriched visual features that represent the incoming video frames whereas on the other hand, the RNN block acts
+as a decoder for text/sentence generation.
 
 - **Popular Video Features Extraction Methods and Action Recognition**
 
