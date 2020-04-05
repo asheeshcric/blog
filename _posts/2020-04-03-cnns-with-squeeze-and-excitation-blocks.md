@@ -102,3 +102,15 @@ $$\in \mathbb{R}^{H*W}$$
 The excitation operator maps the input-specific descriptor **z** to a set of channel weights. In this regard, SE blocks
 intrinsically introduce dynamics conditioned on the input, which can be regarded as a self-attention function on channels
 whose relationships are not confined to the local receptive field the convolutional filters are responsive to.
+
+
+### Conclusion
+
+These SE blocks can be cascaded on top of each other or used alone into standard architectures like VGGNet by insertion
+after each convolution layer. Moreover, the flexibility of the SE block means that it can be directly applied to
+transformations beyond standard convolutions. The authors developed SENets by incorporating SE blocks into several examples
+of more complex architectures which you can find in the paper.
+
+The github link to the repository provided in the paper is: [https://github.com/hujie-frank/SENet](https://github.com/hujie-frank/SENet)
+
+For PyTorch implementation of the block, you can refer to: [https://github.com/moskomule/senet.pytorch](https://github.com/moskomule/senet.pytorch)
