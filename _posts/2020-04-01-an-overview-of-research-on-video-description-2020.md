@@ -1,12 +1,12 @@
 ---
-title: An Overview of research on Video Description
+title: An Overview of Research in Video Description in 2020
 date: 2020-04-01 22:35:32 -0500
 categories: [Illustration]
 tags: [machine_learning]
 description: This post discusses about different methods, surveys, and metrics that have been introduced in the field of video description. Video description is one of the popular fields in today's research that involves understanding and detection of occurrences of many entities in a video.
 ---
 
-The following post is inspired by the paper [Video Description: A Survey of Methods, Datasets and Evaluation Metrics](https://arxiv.org/abs/1806.00186).
+The following post is greatly inspired by the paper [Video Description: A Survey of Methods, Datasets and Evaluation Metrics](https://arxiv.org/abs/1806.00186).
 I have tried to summarize the research that has been undergone in the field of visual recognition and video description
 in this writing. This post discusses the methods that have been used since the past by categorizing them into three
 special groups so that it is easier to understand the progress of classical methods in comparison to modern deep learning
@@ -267,3 +267,10 @@ accuracy.
 DRL based methods are gaining popularity and have shown comparable results in video description. Since their learning
 methodology is unlike other supervised methods, they are less likely to suffer from the scarcity of labeled training data,
 computational constraints, and overfitting problems. We can expect these methods to flourish in the near future.
+
+
+
+**References**
+- [Video Description: A Survey of Methods, Datasets and Evaluation Metrics](https://arxiv.org/abs/1806.00186)
+- [Deep Learning for Videos: A 2018 Guide to Action Recognition](http://blog.qure.ai/notes/deep-learning-for-videos-action-recognition-review)
+- [Awesome Action Recognition](https://github.com/jinwchoi/awesome-action-recognition)
