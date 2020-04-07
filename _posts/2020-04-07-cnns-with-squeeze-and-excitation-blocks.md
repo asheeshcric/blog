@@ -1,6 +1,6 @@
 ---
-title: "Enhance your CNN Networks with Squeeze and Excitation (SE) blocks: Attention Mechanism for Image Channels"
-date: 2020-04-03 14:46:32 -0500
+title: "Enhance your CNN Networks with Squeeze and Excitation (SE) blocks: Attention Mechanism for Input Channels"
+date: 2020-04-07 12:45:32 -0500
 categories: [Illustration]
 tags: [machine_learning]
 description: This post discusses about different methods, surveys, and metrics that have been introduced in the field of video description. Video description is one of the popular fields in today's research that involves understanding and detection of occurrences of many entities in a video.
@@ -72,9 +72,9 @@ aggregation and global average pooling to make sure that the more expressive reg
 
 To make use of the information aggregated in the *squeeze* operation, we follow it with a second operation which aims to
 fully capture channel-wise dependencies. This is done when we fulfil two criteria:
-    - First, it must be flexible, i.e. it must be capable of learning a nonlinear interaction between channels
-    - Second, it must learn a non-mutually-exclusive relationship since we would like to ensure that multiple channels
-    are allowed to be emphasized (rather than enforcing a one-hot activation)
+- First, it must be flexible, i.e. it must be capable of learning a non-linear interaction between channels
+- Second, it must learn a non-mutually-exclusive relationship since we would like to ensure that multiple channels
+are allowed to be emphasized (rather than enforcing a one-hot activation)
     
 To meet the above criteria, we employ a simple gating mechanism with a sigmoid activation:
 
@@ -87,7 +87,7 @@ where,
 
 In order to reduce model complexity and make sure that the model generalizes well, we parameterise the gating mechanism
 by forming a bottleneck with two fully-connected (FC) layers around the non-linearity, i.e. a dimensionality-reduction
-layer with reduction ration $$\gamma$$, a RELU, and then a dimensionality-increasing layer returning to the channel
+layer with reduction ratio $$\gamma$$, a RELU, and then a dimensionality-increasing layer returning to the channel
 dimension of the transformation output $$\textbf{U}$$. The final output of the block is obtained by rescaling $$\textbf{F}$$
 with the activation **s**:
 
@@ -114,3 +114,9 @@ of more complex architectures which you can find in the paper.
 The github link to the repository provided in the paper is: [https://github.com/hujie-frank/SENet](https://github.com/hujie-frank/SENet)
 
 For PyTorch implementation of the block, you can refer to: [https://github.com/moskomule/senet.pytorch](https://github.com/moskomule/senet.pytorch)
+
+
+**References**
+- [Squeeze-and-Excitation Networks](https://arxiv.org/abs/1709.01507)
+- [SENet Github](https://github.com/hujie-frank/SENet)
+- [PyTorch Implementation of SENet](https://github.com/moskomule/senet.pytorch)
