@@ -2,7 +2,7 @@
 title: How to write pythonic code?
 date: 2019-02-08 11:23:00 +0515
 categories: [Demo]
-tags: [python]
+tags: [best_practice]
 description: Who decides if a code written in Python is actually pythonic or not?
   These are some questions which I will try to discuss in this post so that you can
   have some insights.
