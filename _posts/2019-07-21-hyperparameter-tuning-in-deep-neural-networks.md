@@ -1,6 +1,8 @@
 ---
 title: Hyperparameter Tuning in Deep Neural Networks
 description: One way to make your deep learning model more accurate and generate better results is to tune your model's hyperparameters. By doing so, you can speed up your training process and optimize the outputs provided by the model.
+categories: [Tutorial]
+tags: [machine_learning]
 ---
 
 

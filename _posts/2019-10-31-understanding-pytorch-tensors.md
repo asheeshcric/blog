@@ -2,7 +2,7 @@
 title: Understanding PyTorch Tensors
 date: 2019-10-31 11:23:00 +0515
 categories: [Tutorial]
-tags: [pytorch python deep_learning]
+tags: [machine_learning]
 description: Understanding how tensor operations are carried out in PyTorch with examples.
 published: false
 ---

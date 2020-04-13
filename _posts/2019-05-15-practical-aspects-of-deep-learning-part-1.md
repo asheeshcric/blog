@@ -1,6 +1,8 @@
 ---
 title: Practical Aspects of Deep Learning - 1
 description: In order to improve a deep neural network that you built, you need to understand the practical aspects of Deep Learning and Neural Networks.
+categories: [Tutorial]
+tags: [machine_learning]
 ---
 
 Deep Learning is a subset of Machine Learning which has come to evolve highly in the past few years. It involves

@@ -1,6 +1,8 @@
 ---
 title: Neural Network Basics with Logistic Regression
 description: This post explains about the fundamentals of neural networks by explaining how a logistic regression model works for each neuron.
+categories: [Tutorial]
+tags: [machine_learning]
 ---
 
 These are some of my notes taken from the first course of Deep Learning Specialization

@@ -1,6 +1,8 @@
 ---
 title: Optimization Algorithms in Deep Learning
 description: Building deep neural networks is one thing, but optimizing it to train faster with better accuracy is a completely different set of domain. It is very important to focus on optimizing our training algorithms and expedite the process.
+categories: [Tutorial]
+tags: [machine_learning]
 ---
 
 Building deep neural networks is one thing, but optimizing it to train faster with better accuracy is a completely different
