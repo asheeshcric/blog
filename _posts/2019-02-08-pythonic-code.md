@@ -1,9 +1,13 @@
 ---
-title: "How to write pythonic code?"
+title: How to write pythonic code?
 date: 2019-02-08 11:23:00 +0515
 categories: [Demo]
 tags: [python]
-description: Who decides if a code written in Python is actually pythonic or not? These are some questions which I will try to discuss in this post so that you can have some insights.
+description: Who decides if a code written in Python is actually pythonic or not?
+  These are some questions which I will try to discuss in this post so that you can
+  have some insights.
+seo:
+  date_modified: 2020-04-01 22:49:31 -0500
 ---
 
 ![Pythonic Code]({{ site.assets_url }}/img/posts/pythonic-code.jpg "Pythonic Code")

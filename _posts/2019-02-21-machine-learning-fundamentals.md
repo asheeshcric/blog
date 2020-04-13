@@ -3,7 +3,11 @@ title: Machine Learning Terminologies
 date: 2019-02-21 11:23:00 +0515
 categories: [Tutorial]
 tags: [machine_learning]
-description: You might feel intimidated at start hearing all those fancy AI/ML terms used by people everywhere. This is one of the posts that gives you a basic overview of the most used fundamental concepts in machine learning.
+description: You might feel intimidated at start hearing all those fancy AI/ML terms
+  used by people everywhere. This is one of the posts that gives you a basic overview
+  of the most used fundamental concepts in machine learning.
+seo:
+  date_modified: 2020-03-25 17:26:12 -0500
 ---
 
 As a beginner in data science or machine learning, it always adds a cushion if

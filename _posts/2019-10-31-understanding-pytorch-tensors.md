@@ -5,6 +5,8 @@ categories: [Tutorial]
 tags: [machine_learning]
 description: Understanding how tensor operations are carried out in PyTorch with examples.
 published: false
+seo:
+  date_modified: 2020-04-13 14:47:03 -0500
 ---
 
 This post is just intended to present example codes to see how tensors are operated and manipulated in

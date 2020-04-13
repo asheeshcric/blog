@@ -1,8 +1,11 @@
 ---
 title: RandomForest with scikit-learn - Part 2
-description: Learn how to apply a RandomForest classifier for any arbitrary dataset and generate surprisingly accurate results.
+description: Learn how to apply a RandomForest classifier for any arbitrary dataset
+  and generate surprisingly accurate results.
 categories: [Illustration]
 tags: [machine_learning]
+seo:
+  date_modified: 2020-04-13 14:39:24 -0500
 ---
 
 Welcome to the second part of the post. In this half, we will be implementing RandomForest regressor
