@@ -7,7 +7,7 @@ description: Who decides if a code written in Python is actually pythonic or not
   These are some questions which I will try to discuss in this post so that you can
   have some insights.
 seo:
-  date_modified: 2020-04-01 22:49:31 -0500
+  date_modified: 2020-04-13 14:54:59 -0500
 ---
 
 ![Pythonic Code]({{ site.assets_url }}/img/posts/pythonic-code.jpg "Pythonic Code")
