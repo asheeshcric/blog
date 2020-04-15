@@ -2,7 +2,7 @@
 title: "Enhance your CNN Networks with Squeeze and Excitation (SE) blocks: Attention Mechanism for Input Channels"
 date: 2020-04-07 12:45:32 -0500
 categories: [Illustration]
-tags: [machine_learning]
+tags: [computer_vision]
 description: This post discusses about different methods, surveys, and metrics that have been introduced in the field of video description. Video description is one of the popular fields in today's research that involves understanding and detection of occurrences of many entities in a video.
 ---
 
