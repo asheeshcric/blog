@@ -5,7 +5,7 @@ description: In order to improve a deep neural network that you built, you need 
 categories: [Tutorial]
 tags: [machine_learning]
 seo:
-  date_modified: 2020-04-13 14:47:03 -0500
+  date_modified: 2020-04-13 14:54:59 -0500
 ---
 
 Welcome to the second part of "Practical Aspects of Deep Learning". If you haven't already gone through the first part,

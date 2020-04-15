@@ -3,7 +3,12 @@ title: An Overview of Research in Video Description in 2020
 date: 2020-04-01 22:35:32 -0500
 categories: [Illustration]
 tags: [computer_vision]
-description: This post discusses about different methods, surveys, and metrics that have been introduced in the field of video description. Video description is one of the popular fields in today's research that involves understanding and detection of occurrences of many entities in a video.
+description: This post discusses about different methods, surveys, and metrics that
+  have been introduced in the field of video description. Video description is one
+  of the popular fields in today's research that involves understanding and detection
+  of occurrences of many entities in a video.
+seo:
+  date_modified: 2020-04-14 21:21:15 -0500
 ---
 
 The following post is greatly inspired by the paper [Video Description: A Survey of Methods, Datasets and Evaluation Metrics](https://arxiv.org/abs/1806.00186).
