@@ -223,13 +223,52 @@ randomness (with noise) is critical is that it relates to cognitive diversity. I
 converge, we randomly initialize the model weights at the start of the training. The entire idea of stochastic gradient
 descent (SGD) is to perturb the entire network (from top-down) so that it evolves towards satisfying its fitness function.
 
-In recent days, we see Generative Adversarial Networks (GANs) perform really well as the fitness function of the network
+In recent days, we see Generative Adversarial Networks (GANs) performing really well as the fitness function of the network
 is also a trained neural network (the Discriminator). All that a GAN does is make use of random noise to generate data
 and learn a objective function from it without the use of any labeled data. You can refer to this [paper](https://arxiv.org/abs/1812.07385)
 for an in-depth analysis of perturbations in adversarial networks.
 
 Instead of explicitly perturbing the input data, one can also perturb the neural network model itself. We can compare the
 activations of the unperturbed parent model with those of the perturbed models in the cost function as mentioned in the
-work by [Bachman et al.](https://arxiv.org/abs/1412.4864) in 2014. T
+work by [Bachman et al.](https://arxiv.org/abs/1412.4864) in 2014. In the semi-supervised context, if deeper layers in a
+deep neural network can increasingly express abstract representations of the input sample, one can argue that unlabeled
+data could be used to guide the network towards more informative abstract representations. One such approach is the
+*ladder network*, proposed by [Rasmus et al.](https://arxiv.org/abs/1507.02672) in 2015 which extends a feedforward
+network to incorporate unlabeled data by using the feedforward part of the network as the encoder of a denoising autoencoder,
+adding a decoder, and including a term in the cost function to penalize the reconstruction cost. Similarly, there are
+other methods such as $$\pi$$-model, temporal ensembling, mean teacher, and virtual adversarial training.
+
+
+**Manifolds**
+<br>
+As seen in perturbation-based methods, adding slight changes in the input works well for the network to learn under
+smoothness assumption, but it is not the case for all cases. In some low-dimensional datasets, not all minor changes to
+the input should yield similar outputs. One can expect the classifier to be insensitive only to minor changes along the
+same manifold. Therefore, using the property of manifold assumption, methods can make changes in the data which are in 
+the same manifold. There are mainly two different methods under this assumption. Firstly, we consider *manifold regularization
+techniques*, which define a graph over the data points and implicitly penalize differences in predictions for data points
+with small geodesic distance. Secondly, we consider *manifold approximation techniques*, which explicitly estimate the
+manifolds on which the data lie and optimize an objective function accordingly.
+
+**Generative Models**
+<br>
+One of the primary goals of *generative models* is to model the process (or method) that generated the data. When such model
+is fine-tuned on a data with label *y*, it can also be used for classification. There are different types of generative
+models such as Mixture Models, Generative Adversarial Networks (GANs), Variational Autoencoders, etc which try to model
+a function that can be useful in generating similar data from random noise. These methods have become very popular recently
+and are used a lot in deep learning research for computer vision. These models make use of unlabeled data to learn the
+underlying relationship between random noise and the available data. Integrating these models to your network can bolster
+the performance of any classification method as it helps in extracting the most useful information from the input.
+
+
+
+## Conclusion
+This concludes a brief overview of categorization of semi-supervised methods that follow inductive learning. Another
+approach as discussed earlier, that follows *trasductive learning* are generally represented as graph-based methods and
+is out of the scope for this post. The most notable techniques to take-away from this post are the recent advancements
+in semi-supervised neural networks, which are generally perturbation-based. They incorporate the relatively weak
+*smoothness assumption*  and have shown to consistently outperform their supervised counterparts.
+
+
 
 
