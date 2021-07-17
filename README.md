@@ -14,7 +14,7 @@ For customization, you can navigate to `_config.yml` and change the variables as
 ### Running Locally
 - Clone the repository
 - Install Ruby, gem, jekyll, and bundle using the following commands
-`
+```
   echo "-----Installing Ruby and gem-----"
   sudo apt-get -y install ruby-full build-essential zlib1g-dev
 
@@ -30,7 +30,7 @@ For customization, you can navigate to `_config.yml` and change the variables as
   # Also, install jekyll-paginate for /blog
   echo "-----Adding additional gem requirements-----"
   sudo gem install jekyll-paginate% 
-`
+```
 - Run `bundle` to install required gems and plugins
 - Run `bundle exec jekyll serve` to start your local server
 
