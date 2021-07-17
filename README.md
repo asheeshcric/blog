@@ -9,5 +9,35 @@ For customization, you can navigate to `_config.yml` and change the variables as
 
 ### Branch
 - ``master``: is for deploying your blogs.
+- ``chirpy``: is for writing blogs locally and merging them to ``master``
+
+### Running Locally
+- Clone the repository
+- Install Ruby, gem, jekyll, and bundle using the following commands
+```
+  echo "-----Installing Ruby and gem-----"
+  sudo apt-get -y install ruby-full build-essential zlib1g-dev
+
+  sudo echo '# Install Ruby Gems to ~/gems' >> ~/.zshrc
+  sudo echo 'export GEM_HOME="$HOME/gems"' >> ~/.zshrc
+  sudo echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.zshrc
+  source ~/.zshrc
+
+
+  echo "-----Installing jekyll-----"
+  sudo gem install jekyll bundler
+
+  # Also, install jekyll-paginate for /blog
+  echo "-----Adding additional gem requirements-----"
+  sudo gem install jekyll-paginate% 
+```
+- Run `bundle` to install required gems and plugins
+- Run `bundle exec jekyll serve` to start your local server
+
+
+### NOTE
+``
+Branch `chirpy` is for writing and running locally with a different `config.yml` setup. Never merge `master` to `chirpy`, it should always be `chirpy` >> `master`
+``
 
 Last but not the least: the [Jekyll documentation](http://jekyllrb.com) is the best starting point!
