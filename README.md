@@ -34,4 +34,10 @@ For customization, you can navigate to `_config.yml` and change the variables as
 - Run `bundle` to install required gems and plugins
 - Run `bundle exec jekyll serve` to start your local server
 
+
+### NOTE
+```
+Branch `chirpy` is for writing and running locally with a different `config.yml` setup. Never merge `master` to `chirpy`, it should always be `chirpy` >> `master`
+```
+
 Last but not the least: the [Jekyll documentation](http://jekyllrb.com) is the best starting point!
