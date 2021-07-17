@@ -36,8 +36,8 @@ For customization, you can navigate to `_config.yml` and change the variables as
 
 
 ### NOTE
-```
+``
 Branch `chirpy` is for writing and running locally with a different `config.yml` setup. Never merge `master` to `chirpy`, it should always be `chirpy` >> `master`
-```
+``
 
 Last but not the least: the [Jekyll documentation](http://jekyllrb.com) is the best starting point!
