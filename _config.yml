@@ -25,11 +25,11 @@ author: Ashish Jaiswal                  # change to your full name
 
 avatar: /assets/img/sample/asheesh.jpeg   # support internet resources
 
-github:
-  username: asheeshcric             # change to your github username
+# github:
+#   username: asheeshcric             # change to your github username
 
-twitter:
-  username: ashiz2013            # change to your twitter username
+# twitter:
+#   username: ashiz2013            # change to your twitter username
 
 social:
   name: Ashish Jaiswal                  # it will shows as the copyright owner in Footer
