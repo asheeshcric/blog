@@ -13,7 +13,7 @@
         {% assign avatar_url = site.avatar %}
         {% capture start %}{{ site.avatar | slice: 0 }}{% endcapture %}
         {% if start == '/' %}
-          {% assign avatar_url = avatar_url | prepend: site.baseurl %}
+        {% assign avatar_url = avatar_url | prepend: site.baseurl %}
         {% endif %}
         <img src="{{ avatar_url }}" alt="avatar">
       </a>
@@ -28,28 +28,28 @@
   </div>
 
   <ul class="nav flex-column">
-  {% assign page_urls = page.url | split: "/" %}
+    {% assign page_urls = page.url | split: "/" %}
 
-  {% for item in site.data.tabs %}
+    {% for item in site.data.tabs %}
     {% assign ref = site.baseurl | append: "/" %}
 
     {% if item.path %}
-      {% assign ref = ref | append: item.path | append: "/" %}
-      {% if item.url %}
-        {% assign ref = ref | append: item.url | append: "/" %}
-      {% endif %}
+    {% assign ref = ref | append: item.path | append: "/" %}
+    {% if item.url %}
+    {% assign ref = ref | append: item.url | append: "/" %}
+    {% endif %}
     {% endif %}
 
     <li class="nav-item d-flex justify-content-center
       {% if item.url == page_urls.last
         or item.name == page.tab_active
-        or item.name == "Home" and page.layout == "home" %}active{% endif %}">
+        or item.name == " Home" and page.layout=="home" %}active{% endif %}">
       <a href="{{ ref }}" class="nav-link d-flex justify-content-center align-items-center w-100">
         <i class="fa-fw {{ item.icon }} ml-3 mr-3 unloaded"></i>
         <span>{{ item.name | upcase }}</span>
       </a>
     </li> <!-- .nav-item -->
-  {% endfor %}
+    {% endfor %}
 
   </ul> <!-- ul.nav.flex-column -->
 
@@ -58,24 +58,33 @@
 <div class="sidebar-bottom d-flex flex-wrap justify-content-around mt-4">
 
   {% if site.theme_mode == "dual" %}
-  <span id="mode-toggle-wrapper">
+  <span id="mode-toggle-wrapper" title="Toggle Dark Mode">
     {% include mode-toggle.html %}
   </span>
   <span class="icon-border"></span>
   {% endif %}
 
-  <a href="https://github.com/{{ site.github.username }}" target="_blank">
+  <a href="https://github.com/{{ site.githubb.username }}" target="_blank" title="Github">
     <i class="fab fa-github-alt"></i>
   </a>
-  <a href="https://twitter.com/{{ site.twitter.username }}" target="_blank">
+  <a href="https://twitter.com/{{ site.twitter.username }}" target="_blank" title="Twitter">
     <i class="fab fa-twitter"></i>
   </a>
+  <a href="https://linkedin.com/in/{{ site.linkedin.username }}" target="_blank" title="LinkedIn">
+    <i class="fab fa-linkedin"></i>
+  </a>
+  <a href="https://scholar.google.com/citations?user={{ site.scholar.username }}&hl=en" target="_blank"
+    title="Google Scholar">
+    <i class="far fa-sticky-note"></i>
+  </a>
+
+
   {% assign email = site.social.email | split: '@' %}
-  <a href="javascript:window.open('mailto:' + ['{{ email[0] }}','{{ email[1] }}'].join('@'))">
+  <a href="javascript:window.open('mailto:' + ['{{ email[0] }}','{{ email[1] }}'].join('@'))" title="Email Me">
     <i class="fas fa-envelope"></i>
   </a>
-  <a href="{{ site.baseurl }}/feed.xml" target="_blank">
+  <!-- <a href="{{ site.baseurl }}/feed.xml" target="_blank">
     <i class="fas fa-rss"></i>
-  </a>
+  </a> -->
 
 </div>
