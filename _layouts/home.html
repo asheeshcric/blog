@@ -19,9 +19,6 @@ layout: page
       </p>
     </div>
 
-    <!-- Insert Google Ads in between the content of the post -->
-    {% include google_ads.html %}
-
     <div class="post-meta text-muted pt-1">
       <!-- posted date -->
       <i class="far fa-clock fa-fw"></i>
@@ -41,6 +38,9 @@ layout: page
   </div> <!-- .post-review -->
   {% endfor %}
 </div> <!-- #post-list -->
+
+<!-- Insert Google Ads in between the content of the post -->
+{% include google_ads.html %}
 
 {% if paginator.total_pages > 0 %}
   {% include post-paginator.html %}
