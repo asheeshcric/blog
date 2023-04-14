@@ -53,6 +53,9 @@ layout: default
         {% else %}
           {{ content }}
         {% endif %}
+
+        <!-- Insert Google Ads at the end of the post -->
+        {% include google_ads.html %}
       </div>
 
       <div class="post-tail-wrapper text-muted">
@@ -113,11 +116,6 @@ layout: default
   {% include panel.html %}
 
 </div> <!-- .row -->
-
-<!-- Insert Google Ads at the end of the post -->
-<div class="row">
-{% include google_ads.html %}
-</div>
 
 
 <div class="row">
