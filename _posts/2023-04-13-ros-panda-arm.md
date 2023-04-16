@@ -1,8 +1,8 @@
 ---
-title: Franka Panda Arm with ROS
+title: Setting up Franka Emika Panda Arm with ROS (Noetic)
 date: 2023-04-13 17:23:00 -0500
 categories: [Tutorial]
-tags: [ros_noetic, panda_arm]
+tags: [ros_noetic, panda_arm, franka_emika]
 description: This tutorial presents a step-by-step guide to set up Franka Emika Panda Arm with ROS Noetic and create ROS packages to operate it for pick and place tasks.
 seo:
   date_modified: 2023-04-13 17:23:59 -0500
