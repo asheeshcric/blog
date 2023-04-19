@@ -88,7 +88,7 @@ Now, it's time to create your own ROS package and write your first custom node. 
   - `touch custom_panda_arm/src/pick_place.py`
   - Add `#!/usr/bin/env python3` to the top of the python file and make it executable using:
     - `chmod +x custom_panda_arm/src/pick_place.py`
-- Now, you can start writing your node to control the arm. Please refer to this [example](https://gist.github.com/asheeshcric/6e40e98780919876cac2d7657e1977c6)
+- Now, you can start writing your node to control the arm. Please refer to this [example](https://gist.github.com/asheeshcric/6e40e98780919876cac2d7657e1977c6){:target="_blank"}
   - This script moves the arm to a hard-coded location. You may change the positions and orientation accordingly, making sure that the robot doesn't self-collide.
 - Finally, run the new node using: `rosrun custom_panda_arm pick_place.py`
 
