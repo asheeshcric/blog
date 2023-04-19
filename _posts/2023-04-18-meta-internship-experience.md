@@ -1,14 +1,14 @@
 ---
 title: "My Summer Internship at Meta: Building Video Understanding Systems and Exploring California (Summer 2022)"
-date: 2023-04-18 21:16:00 -0500
+date: 2023-04-18 23:16:00 -0500
 categories: [Illustration]
 tags: [internship, meta, machine_learning]
 description: This blog post describes my machine learning internship experience at Meta, the perks of working at Meta, including free food and employee events, and the opportunity to explore California on the weekends.
 seo:
-  date_modified: 2023-04-18 21:16:00 -0500
+  date_modified: 2023-04-18 23:20:00 -0500
 ---
 
-[Meta Platforms, Inc.](https://en.wikipedia.org/wiki/Meta_Platforms) is a leading tech company that provides users with a wide range of products and services worldwide. Some of the popular mentions are Facebook, Instagram, and Whatsapp. During the summer of 2022, I had the opportunity to work as a machine learning (ML) intern at Meta's Menlo Park headquarters. I worked on various projects with the Audio-Video Understanding Team, including building a system to visualize popular trends in REELS videos and creating a search indexing API for video search. In addition to the exciting work, I also enjoyed the perks of working at Meta and exploring California on the weekends. Here's a glimpse into my summer internship experience.
+[Meta Platforms, Inc.](https://en.wikipedia.org/wiki/Meta_Platforms){:target="_blank"} is a leading tech company that provides users with a wide range of products and services worldwide. Some of the popular mentions are Facebook, Instagram, and Whatsapp. During the summer of 2022, I had the opportunity to work as a machine learning (ML) intern at Meta's Menlo Park headquarters. I worked on various projects with the Audio-Video Understanding Team, including building a system to visualize popular trends in REELS videos and creating a search indexing API for video search. In addition to the exciting work, I also enjoyed the perks of working at Meta and exploring California on the weekends. Here's a glimpse into my summer internship experience.
 
 ![Menlo Park, CA](https://raw.githubusercontent.com/asheeshcric/blog/master/assets/img/posts/hacker_way.jpeg)
 
