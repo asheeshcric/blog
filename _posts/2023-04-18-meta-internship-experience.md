@@ -1,5 +1,5 @@
 ---
-title: "My Summer Internship at Meta: Building Video Understanding Systems and Exploring California (Summer 2022)"
+title: "My Summer Internship Experience at Meta: Building Video Understanding Systems and Exploring California (Summer 2022)"
 date: 2023-04-18 23:16:00 -0500
 categories: [Illustration]
 tags: [internship, meta, machine_learning]
