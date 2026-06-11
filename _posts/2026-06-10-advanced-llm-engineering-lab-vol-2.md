@@ -3,7 +3,7 @@ title: "Advanced LLM Engineering Lab — Vol. 2: The Agentic Frontier"
 date: 2026-06-10 18:30:00 -0500
 categories: [Tutorial]
 tags: [machine_learning, large_language_models, ai_agents, agentic_ai, llm_engineering]
-description: A second interactive, single-file web app — this time about engineering agents, not just understanding models. The agent loop, harness engineering, context & memory systems, building agentic APIs with MCP, generalist-vs-specialist orchestration, training agents with RL, and shipping them with real evals — capped by a hands-on capstone that wires it all together. Built for ML practitioners moving from "I understand LLMs" to "I can build reliable agents."
+description: A second interactive, single-file web app — this time about engineering agents, not just understanding models. The agent loop, harness engineering, context & memory systems, building agentic APIs with MCP, generalist-vs-specialist orchestration, training agents with RL, and shipping them with real evals. Built for ML practitioners moving from "I understand LLMs" to "I can build reliable agents."
 toc: true
 ---
 
@@ -32,7 +32,7 @@ The one idea that runs through the whole thing:
 
 ## Try it right here
 
-Like Vol. 1, it's a single self-contained HTML file — 9 tracks, 37 short lessons, a
+Like Vol. 1, it's a single self-contained HTML file — 8 tracks, 33 short lessons, a
 hands-on widget in every lesson, with progress saved locally. No frameworks, no server, no
 network calls. Use the sidebar to navigate, poke the widgets, and toggle the
 **light/dark theme** from the top of the sidebar. (For the best experience — especially on
@@ -70,7 +70,6 @@ interactive widget, a "what changed recently" note, and a quick self-check.
 | 6 | **Generalist vs Specialist Agents** | Single vs multi-agent tradeoffs, orchestration patterns, the "orchestration tax," and when specialization actually wins |
 | 7 | **Training Agents (Agentic RL)** | SFT on traces, RL on multi-turn trajectories, the credit-assignment problem, and verifiable/checklist rewards |
 | 8 | **Eval, Observability & Production** | Why agent eval is hard, outcome vs trajectory evals, OpenTelemetry tracing, debugging a real incident, shipping with guardrails |
-| 9 | **Capstone: a Local Discovery Agent** | Wire all 8 tracks into one real system — a discovery agent that finds high-quality local content by interest, built and traced end-to-end |
 
 Plus three reference views: a **timeline** of the agentic era (2022 → 2026), a
 **glossary** of the agent-engineering lexicon, and a printable **cheat sheet** of the
@@ -97,8 +96,6 @@ number of agents up and watching the token cost multiply is another. A sampling:
   the "action bottleneck" appear under uniform token-level credit.
 - **Trace explorer** — read a real-looking OpenTelemetry trace tree and find the one span
   dragging the whole task down.
-- **Agent assembler (capstone)** — compose a complete discovery agent and watch a traced,
-  end-to-end run resolve a city, retrieve, classify, rerank, and compose a grounded answer.
 
 ## How it's built
 
